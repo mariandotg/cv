@@ -1,11 +1,11 @@
 ---
 interface Props {
-	title: string;
+  title: string
 }
 
-const { title } = Astro.props;
-const locale = Astro.currentLocale;
-console.log(locale);
+const { title } = Astro.props
+const locale = Astro.currentLocale
+console.log(locale)
 ---
 
 <!doctype html>
@@ -23,31 +23,100 @@ console.log(locale);
 	</body>
 </html>
 <style is:global>
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	@layer base {
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--background: 0 0% 100%;
+		--foreground: 224 71.4% 4.1%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 224 71.4% 4.1%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 224 71.4% 4.1%;
+
+		--primary: 220.9 39.3% 11%;
+		--primary-foreground: 210 20% 98%;
+
+		--secondary: 220 14.3% 95.9%;
+		--secondary-foreground: 220.9 39.3% 11%;
+
+		--muted: 220 14.3% 95.9%;
+		--muted-foreground: 220 8.9% 46.1%;
+
+		--accent: 220 14.3% 95.9%;
+		--accent-foreground: 220.9 39.3% 11%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 20% 98%;
+
+		--border: 220 13% 91%;
+		--input: 220 13% 91%;
+		--ring: 224 71.4% 4.1%;
+
+		--radius: 0.5rem;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+
+	.dark {
+		--background: 224 71.4% 4.1%;
+		--foreground: 210 20% 98%;
+
+		--card: 224 71.4% 4.1%;
+		--card-foreground: 210 20% 98%;
+
+		--popover: 224 71.4% 4.1%;
+		--popover-foreground: 210 20% 98%;
+
+		--primary: 210 20% 98%;
+		--primary-foreground: 220.9 39.3% 11%;
+
+		--secondary: 215 27.9% 16.9%;
+		--secondary-foreground: 210 20% 98%;
+
+		--muted: 215 27.9% 16.9%;
+		--muted-foreground: 217.9 10.6% 64.9%;
+
+		--accent: 215 27.9% 16.9%;
+		--accent-foreground: 210 20% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 20% 98%;
+
+		--border: 215 27.9% 16.9%;
+		--input: 215 27.9% 16.9%;
+		--ring: 216 12.2% 83.9%;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	}
+
+	@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+	}
+
+	.print-force-new-page {
+	page-break-before: always;
+	}
+
+	@font-face {
+	font-family: 'IBM Plex Sans';
+	src: url('/fonts/ibmplexsans.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	}
+
+	@font-face {
+	font-family: 'IBM Plex Mono';
+	src: url('/fonts/ibmplexmono.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 	}
 </style>
