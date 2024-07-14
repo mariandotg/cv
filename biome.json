@@ -28,7 +28,7 @@
       "attributePosition": "auto"
     }
   },
-  "organizeImports": { "enabled": true },
+  "organizeImports": { "enabled": false },
   "linter": { "enabled": true, "rules": { "recommended": false } },
   "overrides": [{ "include": ["*.astro"] }]
 }
