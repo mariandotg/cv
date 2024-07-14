@@ -1,13 +1,8 @@
+import type { Social } from '../../models/resume.data.models'
 import { Button } from '../design-system/Button'
 
-export interface Socials {
-  name: string
-  url: string
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
-}
-
 export interface SocialMediaListProps {
-  socials: readonly Socials[]
+  socials: readonly Social[]
 }
 
 const SocialMediaList = ({ socials }: SocialMediaListProps) =>
