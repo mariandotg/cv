@@ -4,6 +4,9 @@ import { AvatarComponent } from '../../components/design-system/Avatar'
 import { RESUME_DATA } from '../../data/resume.data'
 import { staticLocalePaths } from '../../data/locales'
 import { SocialMediaList } from '../../components/ui/SocialMediaList'
+import { JobCard } from '../../components/design-system/JobCard'
+import { cn } from '../../lib/utils'
+import { Badge } from '../../components/design-system/Badge'
 
 export function getStaticPaths() {
   return staticLocalePaths
@@ -92,50 +95,16 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 			</Avatar> -->
 		  </div>
 		  <section>
-			<h2 class="text-xl font-bold">About</h2>
+			<h2 class="text-lg font-bold">About</h2>
 			<p class="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
 			  {DATA.summary}
 			</p>
 		  </section>
-		  <section>
-			<h2 class="text-xl font-bold">Work Experience</h2>
-			{DATA.work.map((work) => {
-			  return (
-				<div key={work.company}>
-				  <div>
-					<div class="flex items-center justify-between gap-x-2 text-base">
-					  <h3 class="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-						<a class="hover:underline" href={work.link}>
-						  {work.company}
-						</a>
-  
-						<span class="inline-flex gap-x-1">
-						  {/* {work.badges.map((badge) => (
-							<Badge
-							  variant="secondary"
-							  class="align-middle text-xs print:text-[8px] print:leading-tight print:px-1 print:py-0.5"
-							  key={badge}
-							>
-							  {badge}
-							</Badge>
-						  ))} */}
-						</span>
-					  </h3>
-					  <div class="text-sm tabular-nums text-gray-500">
-						{work.start} - {work.end ?? "Present"}
-					  </div>
-					</div>
-  
-					<h4 class="font-mono text-sm leading-none print:text-[12px]">
-					  {work.title}
-					</h4>
-				  </div>
-				  <div class="mt-2 text-xs print:text-[10px]">
-					{work.description}
-				  </div>
-				</div>
-			  );
-			})}
+		  <section class="flex min-h-0 flex-col gap-y-3">
+			<h2 class="text-lg font-bold">Work Experience</h2>
+			{DATA.work.reverse().map((work) => 
+				<JobCard work={work}/>
+			)}
 		  </section>
 		  <!-- <section>
 			<h2 class="text-xl font-bold">Education</h2>
@@ -160,20 +129,20 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 			})}
 		  </section> -->
 		  <section>
-			<h2 class="text-xl font-bold">Skills</h2>
+			<h2 class="text-lg font-bold">Skills</h2>
 			<div class="flex flex-wrap gap-1">
 			  {DATA.skills.map((skill) => {
 				return (
-				  <div class="print:text-[10px]" key={skill}>
+				  <Badge className="print:text-[10px]">
 					{skill}
-				  </div>
+				  </Badge>
 				);
 			  })}
 			</div>
 		  </section>
   
 		  <section class="print-force-new-page scroll-mb-16">
-			<h2 class="text-xl font-bold">Projects</h2>
+			<h2 class="text-lg font-bold">Projects</h2>
 			<div class="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
 			  <!-- {DATA.projects.map((project) => {
 				return (
