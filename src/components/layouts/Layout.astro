@@ -14,6 +14,7 @@ const DATA = RESUME_DATA[locale]
 <html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<SEO
 			title={DATA.name}
 			description={DATA.about}
@@ -29,7 +30,7 @@ const DATA = RESUME_DATA[locale]
 			}}
 			extend={{
 				// extending the default link tags
-				link: [{ rel: "icon", href: "public/favicon.ico" }],
+				link: [{ rel: "icon", href: "/favicon.ico" }],
 				// extending the default meta tags
 				meta: [
 				{
@@ -120,7 +121,10 @@ const DATA = RESUME_DATA[locale]
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground h-full;
+	}
+	html {
+		@apply h-full;
 	}
 	}
 
