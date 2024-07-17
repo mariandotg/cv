@@ -1,22 +1,46 @@
 ---
+import { SEO } from 'astro-seo'
+import { RESUME_DATA } from '../../data/resume.data'
+
 interface Props {
   title: string
 }
 
-const { title } = Astro.props
-const locale = Astro.currentLocale
-console.log(locale)
+const locale = Astro.currentLocale || 'en'
+const DATA = RESUME_DATA[locale]
 ---
 
 <!doctype html>
 <html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<SEO
+			title={DATA.name}
+			description={DATA.about}
+			openGraph={{
+				basic: {
+					title: DATA.name,
+					type: DATA.about,
+					image: "https://res.cloudinary.com/dgsft8yky/image/upload/v1704451206/home-metadata-image_yjyydi.jpg",
+				}
+			}}
+			twitter={{
+				creator: "@mariandotg"
+			}}
+			extend={{
+				// extending the default link tags
+				link: [{ rel: "icon", href: "public/favicon.ico" }],
+				// extending the default meta tags
+				meta: [
+				{
+					name: "twitter:image",
+					content: "https://res.cloudinary.com/dgsft8yky/image/upload/v1704451206/home-metadata-image_yjyydi.jpg",
+				},
+				{ name: "twitter:title", content: DATA.name },
+				{ name: "twitter:description", content: DATA.about },
+				],
+			}}
+		/>
 	</head>
 	<body>
 		<slot />
