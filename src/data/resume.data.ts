@@ -30,7 +30,7 @@ const EN_DATA = {
       },
       {
         name: 'X',
-        url: 'https://x.com/BartoszJarocki',
+        url: 'https://twitter.com/mariandotg',
         icon: XIcon,
       },
     ],

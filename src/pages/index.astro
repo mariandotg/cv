@@ -1,14 +1,156 @@
 ---
 import Layout from '../components/layouts/Layout.astro'
+import { AvatarComponent } from '../components/design-system/Avatar'
+import { RESUME_DATA } from '../data/resume.data'
+import { SocialMediaList } from '../components/ui/SocialMediaList'
+import { JobCard } from '../components/design-system/JobCard'
+import { Badge } from '../components/design-system/Badge'
 
-const a = 'asd'
+const DATA = RESUME_DATA['en']
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="bg-primary-green">
-		default
+	<main class="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+		<section class="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4">
+		<div class="flex items-center justify-between">
+			<div class="flex-1 space-y-1.5">
+			  <h1 class="text-2xl font-black">{DATA.name}</h1>
+			  <p class="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+				{DATA.about}
+			  </p>
+			  <p class="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
+				<a
+				  class="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
+				  href={DATA.locationLink}
+				  target="_blank"
+				>
+				  <!-- <GlobeIcon class="size-3" /> -->
+				  {DATA.location}
+				</a>
+			  </p>
+			  <div class="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
+				<!-- {DATA.contact.email ? (
+				  <Button
+					class="size-8"
+					variant="outline"
+					size="icon"
+					asChild
+				  >
+					<a href={`mailto:${DATA.contact.email}`}>
+					  {/* <MailIcon class="size-4" /> */}
+					</a>
+				  </Button>
+				) : null} -->
+				<!-- {DATA.contact.tel ? (
+				  <Button
+					class="size-8"
+					variant="outline"
+					size="icon"
+					asChild
+				  >
+					<a href={`tel:${DATA.contact.tel}`}>
+					  <PhoneIcon class="size-4" />
+					</a>
+				  </Button>
+				) : null} -->
+				<!-- {DATA.contact.social.map((social) => (
+				  <Button
+					key={social.name}
+					class="size-8"
+					variant="outline"
+					size="icon"
+					asChild
+				  >
+					<a href={social.url}>
+					  <social.icon class="size-4" />
+					</a>
+				  </Button>
+				))} -->
+				<SocialMediaList socials={DATA.contact.social} />
+			  </div>
+			  <div class="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
+				{DATA.contact.email ? (
+				  <a href={`mailto:${DATA.contact.email}`}>
+					<span class="underline">{DATA.contact.email}</span>
+				  </a>
+				) : null}
+				<!-- {DATA.contact.tel ? (
+				  <a href={`tel:${DATA.contact.tel}`}>
+					<span class="underline">{DATA.contact.tel}</span>
+				  </a>
+				) : null} -->
+			  </div>
+			</div>
+  
+			<AvatarComponent src={DATA.avatarUrl} fallbackText={DATA.initials} alt={DATA.name} client:load/>
+			<!-- <Avatar class="size-28">
+			  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+			  <AvatarFallback>{DATA.initials}</AvatarFallback>
+			</Avatar> -->
+		  </div>
+		  <section>
+			<h2 class="text-lg font-bold">About</h2>
+			<p class="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+			  {DATA.summary}
+			</p>
+		  </section>
+		  <section class="flex min-h-0 flex-col gap-y-3">
+			<h2 class="text-lg font-bold">Work Experience</h2>
+			{DATA.work.reverse().map((work) => 
+				<JobCard work={work}/>
+			)}
+		  </section>
+		  <!-- <section>
+			<h2 class="text-xl font-bold">Education</h2>
+			{DATA.education.map((education) => {
+			  return (
+				<div key={education.school}>
+				  <CardHeader>
+					<div class="flex items-center justify-between gap-x-2 text-base">
+					  <h3 class="font-semibold leading-none">
+						{education.school}
+					  </h3>
+					  <div class="text-sm tabular-nums text-gray-500">
+						{education.start} - {education.end}
+					  </div>
+					</div>
+				  </CardHeader>
+				  <CardContent class="mt-2 print:text-[12px]">
+					{education.degree}
+				  </CardContent>
+				</Card>
+			  );
+			})}
+		  </section> -->
+		  <section>
+			<h2 class="text-lg font-bold">Skills</h2>
+			<div class="flex flex-wrap gap-1">
+			  {DATA.skills.map((skill) => {
+				return (
+				  <Badge className="print:text-[10px]">
+					{skill}
+				  </Badge>
+				);
+			  })}
+			</div>
+		  </section>
+  
+		  <section class="print-force-new-page scroll-mb-16">
+			<h2 class="text-lg font-bold">Projects</h2>
+			<div class="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+			  <!-- {DATA.projects.map((project) => {
+				return (
+				  <ProjectCard
+					key={project.title}
+					title={project.title}
+					description={project.description}
+					tags={project.techStack}
+					link={"link" in project ? project.link.href : undefined}
+				  />
+				);
+			  })} -->
+			</div>
+		  </section>
+		</section>
 	</main>
 </Layout>
-
-<style>
-</style>
