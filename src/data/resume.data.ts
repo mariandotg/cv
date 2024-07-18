@@ -88,6 +88,26 @@ const EN_DATA = {
         href: 'https://marianoguillaume.com/',
       },
     },
+    {
+      title: 'marianoguillaumeasdas.com',
+      techStack: ['TypeScript', 'Next.js', 'MDX'],
+      description:
+        'El copiloto de reuniones ágil que ofrece mejores reuniones con menos esfuerzo',
+      link: {
+        label: 'marianoguillaume.com',
+        href: 'https://marianoguillaume.com/es',
+      },
+    },
+    {
+      title: 'marianoguillaumeasdas.com',
+      techStack: ['TypeScript', 'Next.js', 'MDX'],
+      description:
+        'El copiloto de reuniones ágil que ofrece mejores reuniones con menos esfuerzo',
+      link: {
+        label: 'marianoguillaume.com',
+        href: 'https://marianoguillaume.com/es',
+      },
+    },
   ],
 } as const
 
@@ -168,6 +188,16 @@ const ES_DATA = {
   projects: [
     {
       title: 'marianoguillaume.com',
+      techStack: ['TypeScript', 'Next.js', 'MDX'],
+      description:
+        'El copiloto de reuniones ágil que ofrece mejores reuniones con menos esfuerzo',
+      link: {
+        label: 'marianoguillaume.com',
+        href: 'https://marianoguillaume.com/es',
+      },
+    },
+    {
+      title: 'marianoguillaumeasdas.com',
       techStack: ['TypeScript', 'Next.js', 'MDX'],
       description:
         'El copiloto de reuniones ágil que ofrece mejores reuniones con menos esfuerzo',

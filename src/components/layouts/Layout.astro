@@ -13,6 +13,34 @@ const DATA = RESUME_DATA[locale]
 <!doctype html>
 <html lang={locale}>
 	<head>
+		<script is:inline>
+			const theme = (() => {
+			if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+				return localStorage.getItem('theme')
+			}
+			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				return 'dark'
+			}
+			return 'light'
+			})()
+
+			if (theme === "light") {
+				document.documentElement.classList.remove("dark");
+			} else {
+				document.documentElement.classList.add("dark");
+			}
+			window.localStorage.setItem("theme", theme);
+
+			// document.addEventListener("astro:after-swap", () => {
+			// 	if (localStorage.getItem("theme") === "dark")
+			// 		document.documentElement.classList.toggle("dark", true);
+
+			// 	if (!document.getElementById("themeToggle").hasAttribute("onclick"))
+			// 		document
+			// 		.getElementById("themeToggle")
+			// 		.addEventListener("click", handleToggleClick);
+			// });
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<SEO
@@ -146,5 +174,26 @@ const DATA = RESUME_DATA[locale]
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
+	}
+
+	::view-transition-group(root) {
+		animation-duration: 0.25s;
+	}
+
+	::view-transition-new(root) {
+		animation-name: reveal;
+	}
+
+	::view-transition-old(root) {
+		animation: none;
+	}
+
+	@keyframes reveal {
+		from {
+			clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
+		}
+		to {
+			clip-path: polygon(50% -200%, -100% 200%, 200% 200%);
+		}
 	}
 </style>
