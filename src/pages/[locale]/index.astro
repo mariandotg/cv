@@ -73,7 +73,7 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 				  </Button>
 				))} -->
 				<SocialMediaList socials={DATA.contact.social} />
-				<ToggleTheme client:load/>
+				<ToggleTheme />
 			  </div>
 			  <div class="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
 				{DATA.contact.email ? (
