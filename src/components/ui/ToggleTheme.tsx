@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Button } from '../design-system/Button'
+import { DarkModeIcon } from '../icons/DarkModeIcon'
+import { LightModeIcon } from '../icons/LightModeIcon'
 
 export function ToggleTheme() {
   const [theme, setTheme] = useState<string>(
@@ -49,10 +51,14 @@ export function ToggleTheme() {
       onClick={handleClick}
       id="themeToggler"
       variant={'default'}
-      size={'sm'}
-      className="h-8"
+      size={'icon'}
+      className="size-8"
     >
-      {theme === 'light' ? 'ACTIVAR MODO OSCURO' : 'ACTIVAR MODO CLARO'}
+      {theme === 'light' ? (
+        <DarkModeIcon className="size-4" />
+      ) : (
+        <LightModeIcon className="size-4" />
+      )}
     </Button>
   )
 }
