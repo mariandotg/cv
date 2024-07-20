@@ -2,16 +2,16 @@
 import Layout from '../components/layouts/Layout.astro'
 import { AvatarComponent } from '../components/design-system/Avatar'
 import { RESUME_DATA } from '../data/resume.data'
+import { DICTIONARIES } from '../data/dictionaries'
 import { SocialMediaList } from '../components/ui/SocialMediaList'
 import { ToggleTheme } from '../components/ui/ToggleTheme'
 import { JobCard } from '../components/design-system/JobCard'
 import { GlobeIcon } from '../components/icons/GlobeIcon'
 import { ProjectCard } from '../components/design-system/ProjectCard'
 import { Badge } from '../components/design-system/Badge'
-import { Card, CardContent, CardHeader } from '../components/design-system/Card'
-import { Button } from '../components/design-system/Button'
 
 const DATA = RESUME_DATA['en']
+const DICTIONARY = DICTIONARIES['en']
 ---
 
 <Layout title="Welcome to Astro.">
@@ -51,41 +51,19 @@ const DATA = RESUME_DATA['en']
 			/>
 		  </div>
 		  <section>
-			<h2 class="text-lg font-bold">About</h2>
+			<h2 class="text-lg font-bold">{DICTIONARY.ABOUT}</h2>
 			<p class="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
 			  {DATA.summary}
 			</p>
 		  </section>
 		  <section class="flex min-h-0 flex-col gap-y-3">
-			<h2 class="text-lg font-bold">Work Experience</h2>
+			<h2 class="text-lg font-bold">{DICTIONARY.WORK_EXP}</h2>
 			{DATA.work.reverse().map((work) => 
 				<JobCard work={work} />
 			)}
 		  </section>
-		  <!-- <section>
-			<h2 class="text-xl font-bold">Education</h2>
-			{DATA.education.map((education) => {
-			  return (
-				<div key={education.school}>
-				  <CardHeader>
-					<div class="flex items-center justify-between gap-x-2 text-base">
-					  <h3 class="font-semibold leading-none">
-						{education.school}
-					  </h3>
-					  <div class="text-sm tabular-nums text-gray-500">
-						{education.start} - {education.end}
-					  </div>
-					</div>
-				  </CardHeader>
-				  <CardContent class="mt-2 print:text-[12px]">
-					{education.degree}
-				  </CardContent>
-				</Card>
-			  );
-			})}
-		  </section> -->
 		  <section class="flex flex-col gap-y-3">
-			<h2 class="text-lg font-bold">Skills</h2>
+			<h2 class="text-lg font-bold">{DICTIONARY.SKILLS}</h2>
 			<div class="flex flex-wrap gap-1">
 			  	{DATA.skills.map((skill) => 
 					<Badge className="print:text-[10px]" variant={"secondary"}>
@@ -96,7 +74,7 @@ const DATA = RESUME_DATA['en']
 		  </section>
   
 		  <section class="print-force-new-page flex flex-col gap-y-3">
-			<h2 class="text-lg font-bold">Projects</h2>
+			<h2 class="text-lg font-bold">{DICTIONARY.PROJECTS}</h2>
 			<div class="grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
 			  {DATA.projects.map((project) => 
 			  	<ProjectCard project={project} />

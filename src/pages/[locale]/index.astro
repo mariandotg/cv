@@ -8,12 +8,15 @@ import { JobCard } from '../../components/design-system/JobCard'
 import { Badge } from '../../components/design-system/Badge'
 import { ToggleTheme } from '../../components/ui/ToggleTheme'
 import { ProjectCard } from '../../components/design-system/ProjectCard'
+import { DICTIONARIES } from '../../data/dictionaries'
+import { GlobeIcon } from '../../components/icons/GlobeIcon'
 
 export function getStaticPaths() {
   return staticLocalePaths
 }
 
 const DATA = RESUME_DATA[Astro.currentLocale || 'en']
+const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
 ---
 
 <Layout title="Welcome to Astro.">
@@ -31,7 +34,7 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 				  href={DATA.locationLink}
 				  target="_blank"
 				>
-				  <!-- <GlobeIcon class="size-3" /> -->
+				  <GlobeIcon className="size-3" />
 				  {DATA.location}
 				</a>
 			  </p>
@@ -40,21 +43,11 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 					<ToggleTheme client:load/>
 				</SocialMediaList>
 			  </div>
-			  <div class="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
-				{DATA.contact.email ? (
-				  <a href={`mailto:${DATA.contact.email}`}>
-					<span class="underline">{DATA.contact.email}</span>
-				  </a>
-				) : null}
-				<!-- {DATA.contact.tel ? (
-				  <a href={`tel:${DATA.contact.tel}`}>
-					<span class="underline">{DATA.contact.tel}</span>
-				  </a>
-				) : null} -->
+			  <div class=" flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
+				
 			  </div>
 			</div>
   
-			
 			<AvatarComponent 
 				src={DATA.avatarUrl}
 				fallbackText={DATA.initials}
@@ -63,41 +56,19 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 			/>
 		  </div>
 		  <section>
-			<h2 class="text-lg font-bold">About</h2>
+			<h2 class="text-lg font-bold">{DICTIONARY.ABOUT}</h2>
 			<p class="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
 			  {DATA.summary}
 			</p>
 		  </section>
 		  <section class="flex min-h-0 flex-col gap-y-3">
-			<h2 class="text-lg font-bold">Work Experience</h2>
+			<h2 class="text-lg font-bold">{DICTIONARY.WORK_EXP}</h2>
 			{DATA.work.reverse().map((work) => 
 				<JobCard work={work} />
 			)}
 		  </section>
-		  <!-- <section>
-			<h2 class="text-xl font-bold">Education</h2>
-			{DATA.education.map((education) => {
-			  return (
-				<div key={education.school}>
-				  <CardHeader>
-					<div class="flex items-center justify-between gap-x-2 text-base">
-					  <h3 class="font-semibold leading-none">
-						{education.school}
-					  </h3>
-					  <div class="text-sm tabular-nums text-gray-500">
-						{education.start} - {education.end}
-					  </div>
-					</div>
-				  </CardHeader>
-				  <CardContent class="mt-2 print:text-[12px]">
-					{education.degree}
-				  </CardContent>
-				</Card>
-			  );
-			})}
-		  </section> -->
 		  <section class="flex flex-col gap-y-3">
-			<h2 class="text-lg font-bold">Skills</h2>
+			<h2 class="text-lg font-bold">{DICTIONARY.SKILLS}</h2>
 			<div class="flex flex-wrap gap-1">
 			  	{DATA.skills.map((skill) => 
 					<Badge className="print:text-[10px]" variant={"secondary"}>
@@ -108,7 +79,7 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 		  </section>
   
 		  <section class="print-force-new-page flex flex-col gap-y-3">
-			<h2 class="text-lg font-bold">Projects</h2>
+			<h2 class="text-lg font-bold">{DICTIONARY.PROJECTS}</h2>
 			<div class="grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
 			  {DATA.projects.map((project) => 
 			  	<ProjectCard project={project} />
