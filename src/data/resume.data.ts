@@ -9,10 +9,10 @@ const EN_DATA = {
   location: 'Buenos Aires, Argentina, GMT-3',
   locationLink: 'https://www.google.com.ar/maps/place/Buenos+Aires/',
   about:
-    'Detail-oriented Full Stack Engineer dedicated to building high-quality products.',
+    'Backend Developer committed to creating efficient and scalable solutions.',
   summary:
-    'As a Full Stack Engineer, I specialize in taking products from concept to launch. I excel in leading teams and creating environments where individuals perform at their best. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience working remotely with companies worldwide.',
-  avatarUrl: 'https://avatars.githubusercontent.com/u/84543990?s=400&u=3',
+    'As a Backend Developer, I specialize in building robust and scalable systems from concept to implementation. I excel in optimizing backend performance and ensuring seamless integration with front-end services. Currently, I work mostly with Java, Spring Boot, and MySQL, but I did work a lot with Node.js . I have over 3 years of experience working remotely with companies worldwide.',
+  avatarUrl: 'public/me.jpg',
   personalWebsiteUrl: 'https://marianoguillaume.com',
   contact: {
     email: 'marianguillaume.m@gmail.com',
@@ -117,10 +117,10 @@ const ES_DATA = {
   location: 'Buenos Aires, Argentina, GMT-3',
   locationLink: 'https://www.google.com.ar/maps/place/Buenos+Aires/',
   about:
-    'Ingeniero Full Stack orientado a los detalles y dedicado a crear productos de alta calidad.',
+    'Desarrollador Backend comprometido con la creación de soluciones eficientes y escalables.',
   summary:
-    'Como ingeniero Full Stack, me especializo en llevar productos desde el concepto hasta el lanzamiento. Me destaco en liderar equipos y crear entornos donde las personas se desempeñan al máximo. Actualmente trabajo principalmente con TypeScript, React, Node.js y GraphQL. Tengo más de 8 años de experiencia trabajando remotamente con empresas a nivel mundial.',
-  avatarUrl: 'https://avatars.githubusercontent.com/u/84543990?s=400&u=3',
+    'Como desarrollador backend, me especializo en crear sistemas robustos y escalables desde el concepto hasta la implementación. Me destaco en la optimización del rendimiento del backend y en garantizar una integración perfecta con los servicios de front-end. Actualmente, trabajo principalmente con Java, Spring Boot y MySQL, pero trabajé mucho con Node.js. Tengo más de 3 años de experiencia trabajando de forma remota con empresas de todo el mundo.',
+  avatarUrl: 'public/me.jpg',
   personalWebsiteUrl: 'https://marianoguillaume.com/es',
   contact: {
     email: 'marianguillaume.m@gmail.com',
