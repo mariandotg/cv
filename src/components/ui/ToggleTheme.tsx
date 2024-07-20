@@ -49,7 +49,8 @@ export function ToggleTheme() {
       onClick={handleClick}
       id="themeToggler"
       variant={'default'}
-      size={'default'}
+      size={'sm'}
+      className="h-8"
     >
       {theme === 'light' ? 'ACTIVAR MODO OSCURO' : 'ACTIVAR MODO CLARO'}
     </Button>

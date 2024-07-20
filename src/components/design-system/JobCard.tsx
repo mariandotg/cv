@@ -8,7 +8,7 @@ interface Props {
 
 const JobCard: React.FunctionComponent<Props> = ({ work }) => {
   return (
-    <Card key={work.company}>
+    <Card key={work.company} className="bg-transparent">
       <CardHeader>
         <div className="flex items-center justify-between gap-x-2 text-base">
           <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
