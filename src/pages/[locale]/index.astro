@@ -7,6 +7,7 @@ import { SocialMediaList } from '../../components/ui/SocialMediaList'
 import { JobCard } from '../../components/design-system/JobCard'
 import { Badge } from '../../components/design-system/Badge'
 import { ToggleTheme } from '../../components/ui/ToggleTheme'
+import { ProjectCard } from '../../components/design-system/ProjectCard'
 
 export function getStaticPaths() {
   return staticLocalePaths
@@ -53,11 +54,13 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 			  </div>
 			</div>
   
-			<AvatarComponent src={DATA.avatarUrl} fallbackText={DATA.initials} alt={DATA.name} client:load/>
-			<!-- <Avatar class="size-28">
-			  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-			  <AvatarFallback>{DATA.initials}</AvatarFallback>
-			</Avatar> -->
+			
+			<AvatarComponent 
+				src={DATA.avatarUrl}
+				fallbackText={DATA.initials}
+				alt={DATA.name}
+				client:load
+			/>
 		  </div>
 		  <section>
 			<h2 class="text-lg font-bold">About</h2>
@@ -68,7 +71,7 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 		  <section class="flex min-h-0 flex-col gap-y-3">
 			<h2 class="text-lg font-bold">Work Experience</h2>
 			{DATA.work.reverse().map((work) => 
-				<JobCard work={work}/>
+				<JobCard work={work} />
 			)}
 		  </section>
 		  <!-- <section>
@@ -93,33 +96,23 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 			  );
 			})}
 		  </section> -->
-		  <section>
+		  <section class="flex flex-col gap-y-3">
 			<h2 class="text-lg font-bold">Skills</h2>
 			<div class="flex flex-wrap gap-1">
-			  {DATA.skills.map((skill) => {
-				return (
-				  <Badge className="print:text-[10px]">
-					{skill}
-				  </Badge>
-				);
-			  })}
+			  	{DATA.skills.map((skill) => 
+					<Badge className="print:text-[10px]">
+						{skill}
+					</Badge>
+				)}
 			</div>
 		  </section>
   
-		  <section class="print-force-new-page scroll-mb-16">
+		  <section class="print-force-new-page flex flex-col gap-y-3">
 			<h2 class="text-lg font-bold">Projects</h2>
-			<div class="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-			  <!-- {DATA.projects.map((project) => {
-				return (
-				  <ProjectCard
-					key={project.title}
-					title={project.title}
-					description={project.description}
-					tags={project.techStack}
-					link={"link" in project ? project.link.href : undefined}
-				  />
-				);
-			  })} -->
+			<div class="grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+			  {DATA.projects.map((project) => 
+			  	<ProjectCard project={project} />
+			  )}
 			</div>
 		  </section>
 		</section>
