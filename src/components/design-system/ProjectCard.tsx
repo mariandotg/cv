@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardContent, CardHeader } from './Card'
 import type { Project } from '../../models/resume.data.models'
+import { Badge } from './Badge'
 
 interface Props {
   project: Project
@@ -24,8 +25,13 @@ const ProjectCard: React.FunctionComponent<Props> = ({ project }) => {
           {project.link.label}
         </a>
       </CardHeader>
-      <CardContent className="mt-2 text-sm print:text-[10px]">
+      <CardContent className="mt-2 text-sm print:text-[10px] flex flex-col gap-y-2">
         {project.description}
+        <div className="flex gap-1">
+          {project.techStack.map((tech) => (
+            <Badge variant={'secondary'}>{tech}</Badge>
+          ))}
+        </div>
       </CardContent>
     </Card>
   )
