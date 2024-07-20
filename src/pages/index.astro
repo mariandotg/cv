@@ -88,7 +88,7 @@ const DATA = RESUME_DATA['en']
 			<h2 class="text-lg font-bold">Skills</h2>
 			<div class="flex flex-wrap gap-1">
 			  	{DATA.skills.map((skill) => 
-					<Badge className="print:text-[10px]">
+					<Badge className="print:text-[10px]" variant={"secondary"}>
 						{skill}
 					</Badge>
 				)}
@@ -97,7 +97,7 @@ const DATA = RESUME_DATA['en']
   
 		  <section class="print-force-new-page flex flex-col gap-y-3">
 			<h2 class="text-lg font-bold">Projects</h2>
-			<div class="grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+			<div class="grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
 			  {DATA.projects.map((project) => 
 			  	<ProjectCard project={project} />
 			  )}
