@@ -42,6 +42,15 @@ const SocialMediaList = ({
         </Button>
       ))}
       {children}
+      <Button className="h-8" variant="default" size="sm">
+        <a
+          href={`mailto:${email}`}
+          target="_blank"
+          referrerPolicy="no-referrer"
+        >
+          Descargar CV
+        </a>
+      </Button>
     </>
   )
 }
