@@ -5,8 +5,11 @@ import { RESUME_DATA } from '../data/resume.data'
 import { SocialMediaList } from '../components/ui/SocialMediaList'
 import { ToggleTheme } from '../components/ui/ToggleTheme'
 import { JobCard } from '../components/design-system/JobCard'
+import { GlobeIcon } from '../components/icons/GlobeIcon'
+import { ProjectCard } from '../components/design-system/ProjectCard'
 import { Badge } from '../components/design-system/Badge'
 import { Card, CardContent, CardHeader } from '../components/design-system/Card'
+import { Button } from '../components/design-system/Button'
 
 const DATA = RESUME_DATA['en']
 ---
@@ -26,70 +29,26 @@ const DATA = RESUME_DATA['en']
 				  href={DATA.locationLink}
 				  target="_blank"
 				>
-				  <!-- <GlobeIcon class="size-3" /> -->
+				  <GlobeIcon className="size-3" />
 				  {DATA.location}
 				</a>
 			  </p>
 			  <div class="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
-				<!-- {DATA.contact.email ? (
-				  <Button
-					class="size-8"
-					variant="outline"
-					size="icon"
-					asChild
-				  >
-					<a href={`mailto:${DATA.contact.email}`}>
-					  {/* <MailIcon class="size-4" /> */}
-					</a>
-				  </Button>
-				) : null} -->
-				<!-- {DATA.contact.tel ? (
-				  <Button
-					class="size-8"
-					variant="outline"
-					size="icon"
-					asChild
-				  >
-					<a href={`tel:${DATA.contact.tel}`}>
-					  <PhoneIcon class="size-4" />
-					</a>
-				  </Button>
-				) : null} -->
-				<!-- {DATA.contact.social.map((social) => (
-				  <Button
-					key={social.name}
-					class="size-8"
-					variant="outline"
-					size="icon"
-					asChild
-				  >
-					<a href={social.url}>
-					  <social.icon class="size-4" />
-					</a>
-				  </Button>
-				))} -->
-				<SocialMediaList socials={DATA.contact.social} />
-				<ToggleTheme client:load/>
+				<SocialMediaList email={DATA.contact.email} socials={DATA.contact.social}>
+					<ToggleTheme client:load/>
+				</SocialMediaList>
 			  </div>
-			  <div class="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
-				{DATA.contact.email ? (
-				  <a href={`mailto:${DATA.contact.email}`}>
-					<span class="underline">{DATA.contact.email}</span>
-				  </a>
-				) : null}
-				<!-- {DATA.contact.tel ? (
-				  <a href={`tel:${DATA.contact.tel}`}>
-					<span class="underline">{DATA.contact.tel}</span>
-				  </a>
-				) : null} -->
+			  <div class=" flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
+				
 			  </div>
 			</div>
   
-			<AvatarComponent src={DATA.avatarUrl} fallbackText={DATA.initials} alt={DATA.name} client:load/>
-			<!-- <Avatar class="size-28">
-			  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-			  <AvatarFallback>{DATA.initials}</AvatarFallback>
-			</Avatar> -->
+			<AvatarComponent 
+				src={DATA.avatarUrl}
+				fallbackText={DATA.initials}
+				alt={DATA.name}
+				client:load
+			/>
 		  </div>
 		  <section>
 			<h2 class="text-lg font-bold">About</h2>
@@ -100,7 +59,7 @@ const DATA = RESUME_DATA['en']
 		  <section class="flex min-h-0 flex-col gap-y-3">
 			<h2 class="text-lg font-bold">Work Experience</h2>
 			{DATA.work.reverse().map((work) => 
-				<JobCard work={work}/>
+				<JobCard work={work} />
 			)}
 		  </section>
 		  <!-- <section>
@@ -128,56 +87,20 @@ const DATA = RESUME_DATA['en']
 		  <section class="flex flex-col gap-y-3">
 			<h2 class="text-lg font-bold">Skills</h2>
 			<div class="flex flex-wrap gap-1">
-			  {DATA.skills.map((skill) => {
-				return (
-				  <Badge className="print:text-[10px]">
-					{skill}
-				  </Badge>
-				);
-			  })}
+			  	{DATA.skills.map((skill) => 
+					<Badge className="print:text-[10px]">
+						{skill}
+					</Badge>
+				)}
 			</div>
 		  </section>
   
 		  <section class="print-force-new-page flex flex-col gap-y-3">
 			<h2 class="text-lg font-bold">Projects</h2>
 			<div class="grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-			  {DATA.projects.map((project) => {
-				console.log(DATA.projects)
-				return (
-				<Card>
-					<CardHeader>
-						<div class="flex items-center justify-between gap-x-2 text-base">
-						<h3 class="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-							{project.title}
-
-							{/* <span class="inline-flex gap-x-1">
-							{project.badges.map((badge) => (
-								<Badge
-								variant="secondary"
-								class="align-middle text-xs print:text-[8px] print:leading-tight print:px-1 print:py-0.5"
-								key={badge}
-								>
-								{badge}
-								</Badge>
-							))}
-							</span> */}
-						</h3>
-						</div>
-
-						<a
-							href={project.link.href}
-							class="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-							target="_blank"
-						>
-						{project.link.label}
-						</a>
-					</CardHeader>
-					<CardContent className="mt-2 text-sm print:text-[10px]">
-						{project.description}
-					</CardContent>
-				</Card>
-				);
-			  })}
+			  {DATA.projects.map((project) => 
+			  	<ProjectCard project={project} />
+			  )}
 			</div>
 		  </section>
 		</section>

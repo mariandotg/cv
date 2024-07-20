@@ -35,45 +35,9 @@ const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 				</a>
 			  </p>
 			  <div class="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
-				<!-- {DATA.contact.email ? (
-				  <Button
-					class="size-8"
-					variant="outline"
-					size="icon"
-					asChild
-				  >
-					<a href={`mailto:${DATA.contact.email}`}>
-					  {/* <MailIcon class="size-4" /> */}
-					</a>
-				  </Button>
-				) : null} -->
-				<!-- {DATA.contact.tel ? (
-				  <Button
-					class="size-8"
-					variant="outline"
-					size="icon"
-					asChild
-				  >
-					<a href={`tel:${DATA.contact.tel}`}>
-					  <PhoneIcon class="size-4" />
-					</a>
-				  </Button>
-				) : null} -->
-				<!-- {DATA.contact.social.map((social) => (
-				  <Button
-					key={social.name}
-					class="size-8"
-					variant="outline"
-					size="icon"
-					asChild
-				  >
-					<a href={social.url}>
-					  <social.icon class="size-4" />
-					</a>
-				  </Button>
-				))} -->
-				<SocialMediaList socials={DATA.contact.social} />
-				<ToggleTheme client:load/>
+				<SocialMediaList email={DATA.contact.email} socials={DATA.contact.social}>
+					<ToggleTheme client:load/>
+				</SocialMediaList>
 			  </div>
 			  <div class="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
 				{DATA.contact.email ? (
