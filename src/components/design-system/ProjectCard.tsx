@@ -1,5 +1,11 @@
 import React from 'react'
-import { Card, CardContent, CardHeader } from './Card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from './Card'
 import type { Project } from '../../models/resume.data.models'
 import { Badge } from './Badge'
 
@@ -9,27 +15,40 @@ interface Props {
 
 const ProjectCard: React.FunctionComponent<Props> = ({ project }) => {
   return (
-    <Card className="p-2">
-      <CardHeader>
-        <div className="flex items-center justify-between gap-x-2 text-base">
-          <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-            {project.title}
-          </h3>
+    <Card className="flex flex-col overflow-hidden border border-muted p-3">
+      <CardHeader className="">
+        <div className="space-y-1">
+          <CardTitle className="text-lg">
+            {project.link ? (
+              <a
+                href={project.link.href}
+                target="_blank"
+                className="inline-flex items-center gap-2 hover:underline"
+              >
+                {project.title}{' '}
+                <span className="size-1 rounded-full bg-green-500"></span>
+              </a>
+            ) : (
+              project.title
+            )}
+          </CardTitle>
+          <div className="hidden font-mono text-xs underline print:visible">
+            {project.link?.href
+              .replace('https://', '')
+              .replace('www.', '')
+              .replace('/', '')}
+          </div>
+          <CardDescription className="font-mono text-sm print:text-[10px]">
+            {project.description}
+          </CardDescription>
         </div>
-
-        <a
-          href={project.link.href}
-          className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-          target="_blank"
-        >
-          {project.link.label}
-        </a>
       </CardHeader>
-      <CardContent className="mt-2 text-sm print:text-[10px] flex flex-col gap-y-2">
-        {project.description}
-        <div className="flex gap-1">
+      <CardContent className="mt-auto flex">
+        <div className="mt-2 flex flex-wrap gap-1">
           {project.techStack.map((tech) => (
-            <Badge variant={'secondary'}>{tech}</Badge>
+            <Badge variant="secondary" key={tech}>
+              {tech}
+            </Badge>
           ))}
         </div>
       </CardContent>
