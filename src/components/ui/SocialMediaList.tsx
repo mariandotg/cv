@@ -18,8 +18,12 @@ const SocialMediaList = ({
   return (
     <>
       {email ? (
-        <Button className="size-8" variant="outline" size="icon" asChild>
-          <a href={`mailto:${email}`}>
+        <Button className="size-8" variant="secondary" size="icon" asChild>
+          <a
+            href={`mailto:${email}`}
+            target="_blank"
+            referrerPolicy="no-referrer"
+          >
             <MailIcon className="size-4" />
           </a>
         </Button>
@@ -28,11 +32,11 @@ const SocialMediaList = ({
         <Button
           key={social.name}
           className="size-8"
-          variant="outline"
+          variant="secondary"
           size="icon"
           asChild
         >
-          <a href={social.url}>
+          <a href={social.url} target="_blank" referrerPolicy="no-referrer">
             <social.icon className="size-4" />
           </a>
         </Button>
