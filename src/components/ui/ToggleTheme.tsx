@@ -48,9 +48,9 @@ export function ToggleTheme() {
   //       document.documentElement.classList.toggle('dark')
   //     }),
   //   )
-  if (!isMounted) {
-    return <div>test</div> // or null;
-  }
+  // if (!isMounted) {
+  return <div>test</div> // or null;
+  // }
 
   return (
     <Button
