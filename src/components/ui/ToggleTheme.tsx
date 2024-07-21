@@ -12,9 +12,15 @@ export function ToggleTheme() {
       : 'dark',
   )
   const [isMounted, setIsMounted] = useState(false)
+  console.log('state ', isMounted)
 
+  console.log('render')
   useEffect(() => {
-    setIsMounted(true)
+    console.log('primer render')
+    console.log('isMounted: ', isMounted)
+    setIsMounted((prev) => !prev)
+
+    console.log('se actualizó isMounted')
   }, [])
 
   const handleClick = () => {

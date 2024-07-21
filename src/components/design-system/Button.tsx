@@ -60,7 +60,7 @@ const Slot: React.FunctionComponent<SlotProps> = (props) => {
   }
   // If it's called inside a React component
   if (children.props.children !== undefined) {
-    console.log('valid children')
+    // console.log('valid children')
     //@ts-ignore
     return React.cloneElement(children, { className })
   }
@@ -84,7 +84,7 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button'
-    console.log(props.children)
+    // console.log(props.children)
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
