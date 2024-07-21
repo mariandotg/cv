@@ -38,8 +38,9 @@ function injectClassOnSlotString(
   children: React.ReactElement,
   className: string,
 ): SlotString {
-  console.log(children.props)
-  const stringValue: string = children.props.value.toString()
+  console.log('injectClassOnSlotString: ', children.props)
+  const stringValue: string = children.props.toString()
+  console.log(stringValue)
   const index = stringValue.indexOf('>\n')
 
   const modifiedValue =
@@ -49,6 +50,7 @@ function injectClassOnSlotString(
         stringValue.slice(index + 2)
       : stringValue
 
+  console.log(modifiedValue.toString())
   return new SlotString(modifiedValue, null)
 }
 
@@ -60,19 +62,19 @@ const Slot: React.FunctionComponent<SlotProps> = (props) => {
   }
   // If it's called inside a React component
   if (children.props.children !== undefined) {
-    // console.log('valid children')
+    console.log('valid children')
     //@ts-ignore
     return React.cloneElement(children, { className })
   }
 
   console.log('LOOOOL')
   // If it's called inside a Astro component(or page)
-  // const newValue = injectClassOnSlotString(children, className || '')
-  // const newChildren = {
-  //   ...children,
-  //   props: { ...children.props, value: newValue },
-  // }
-  // return React.cloneElement(newChildren)
+  const newValue = injectClassOnSlotString(children, className || '')
+  const newChildren = {
+    ...children,
+    props: { ...children.props, value: newValue },
+  }
+  return React.cloneElement(newChildren)
 }
 
 export interface ButtonProps

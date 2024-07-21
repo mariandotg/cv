@@ -59,12 +59,15 @@ export function ToggleTheme() {
       variant={'default'}
       size={'icon'}
       className="size-8"
+      asChild
     >
-      {theme === 'light' ? (
-        <DarkModeIcon className="size-4" />
-      ) : (
-        <LightModeIcon className="size-4" />
-      )}
+      <span>
+        {theme === 'light' ? (
+          <DarkModeIcon className="size-4" />
+        ) : (
+          <LightModeIcon className="size-4" />
+        )}
+      </span>
     </Button>
   )
 }
