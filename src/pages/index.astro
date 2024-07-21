@@ -35,9 +35,8 @@ const DICTIONARY = DICTIONARIES['en']
 			  </p>
 			  <div class="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
 				<SocialMediaList email={DATA.contact.email} socials={DATA.contact.social}>
-					nada
+					<ToggleTheme client:load/>
 				</SocialMediaList>
-				<ToggleTheme client:load/>
 			  </div>
 			  <div class=" flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
 				
