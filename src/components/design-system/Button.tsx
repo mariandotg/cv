@@ -1,8 +1,9 @@
-import { Slot } from '@radix-ui/react-slot'
+import { type SlotProps } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 
 import { cn } from '../../lib/utils'
+import { SlotString } from 'astro/runtime/server/render/slot.js'
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -32,6 +33,44 @@ const buttonVariants = cva(
     },
   },
 )
+
+function injectClassOnSlotString(
+  children: React.ReactElement,
+  className: string,
+): SlotString {
+  console.log(children.props)
+  const stringValue: string = children.props.value.toString()
+  const index = stringValue.indexOf('>\n')
+
+  const modifiedValue =
+    index !== -1
+      ? stringValue.slice(0, index) +
+        ` class="${className}">\n` +
+        stringValue.slice(index + 2)
+      : stringValue
+
+  return new SlotString(modifiedValue, null)
+}
+
+const Slot: React.FunctionComponent<SlotProps> = (props) => {
+  const { children, className } = props
+  if (!React.isValidElement(children)) {
+    return
+  }
+  // If it's called inside a React component
+  if (children.props.children !== undefined) {
+    //@ts-ignore
+    return React.cloneElement(children, { className })
+  }
+
+  // If it's called inside a Astro component(or page)
+  const newValue = injectClassOnSlotString(children, className || '')
+  const newChildren = {
+    ...children,
+    props: { ...children.props, value: newValue },
+  }
+  return React.cloneElement(newChildren)
+}
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
