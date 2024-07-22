@@ -31,11 +31,11 @@ const JobCard: React.FunctionComponent<Props> = ({ work }) => {
           </div>
         </div>
 
-        <h4 className="font-mono text-sm leading-none print:text-[12px]">
+        <h4 className="font-base text-sm leading-none print:text-[12px]">
           {work.title}
         </h4>
       </CardHeader>
-      <CardContent className="mt-2 text-sm print:text-[10px]">
+      <CardContent className="mt-2 text-base print:text-[10px]">
         {work.description}
       </CardContent>
     </Card>

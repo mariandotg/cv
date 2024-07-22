@@ -70,7 +70,8 @@ module.exports = {
         },
       },
       fontSize: {
-        test: '3rem',
+        title: ['1rem', '1rem'],
+        name: ['1.5rem', '1.5rem'],
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',

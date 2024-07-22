@@ -15,18 +15,17 @@ interface Props {
 
 const ProjectCard: React.FunctionComponent<Props> = ({ project }) => {
   return (
-    <Card className="flex flex-col overflow-hidden border border-muted p-3">
+    <Card className="flex flex-col overflow-hidden bg-transparent">
       <CardHeader className="">
         <div className="space-y-1">
-          <CardTitle className="text-lg">
+          <CardTitle className="text-title underline-offset-2 mb-1 tracking-normal	">
             {project.link ? (
               <a
                 href={project.link.href}
                 target="_blank"
                 className="inline-flex items-center gap-2 hover:underline"
               >
-                {project.title}{' '}
-                <span className="size-1 rounded-full bg-green-500"></span>
+                {project.title}
               </a>
             ) : (
               project.title
@@ -38,7 +37,7 @@ const ProjectCard: React.FunctionComponent<Props> = ({ project }) => {
               .replace('www.', '')
               .replace('/', '')}
           </div>
-          <CardDescription className="font-mono text-sm print:text-[10px]">
+          <CardDescription className="font-base text-base print:text-[10px]">
             {project.description}
           </CardDescription>
         </div>

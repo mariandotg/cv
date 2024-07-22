@@ -19,8 +19,8 @@ const DICTIONARY = DICTIONARIES['en']
 		<section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-4">
 		<div class="flex items-center justify-between">
 			<div class="flex-1 space-y-1.5">
-			  <h1 class="text-2xl font-black">{DATA.name}</h1>
-			  <p class="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+			  <h1 class="text-name font-semibold">{DATA.name}</h1>
+			  <p class="max-w-md text-pretty font-base text-base text-muted-foreground print:text-[12px]">
 				{DATA.about}
 			  </p>
 			  <p class="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
@@ -52,7 +52,7 @@ const DICTIONARY = DICTIONARIES['en']
 		  </div>
 		  <section>
 			<h2 class="text-lg font-bold">{DICTIONARY.ABOUT}</h2>
-			<p class="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+			<p class="text-pretty font-base text-base text-muted-foreground print:text-[12px]">
 			  {DATA.summary}
 			</p>
 		  </section>
@@ -75,7 +75,7 @@ const DICTIONARY = DICTIONARIES['en']
   
 		  <section class="print-force-new-page flex flex-col gap-y-3">
 			<h2 class="text-lg font-bold">{DICTIONARY.PROJECTS}</h2>
-			<div class="grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
+			<div class="grid grid-cols-1 gap-4 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
 			  {DATA.projects.map((project) => 
 			  	<ProjectCard project={project} />
 			  )}
