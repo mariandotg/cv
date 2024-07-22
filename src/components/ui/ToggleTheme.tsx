@@ -11,10 +11,9 @@ export function ToggleTheme() {
         : 'dark'
       : 'dark',
   )
-  const [isMounted, setIsMounted] = useState(true)
-  console.log('state ', isMounted)
-
-  console.log('render')
+  // const [isMounted, setIsMounted] = useState(true)
+  // console.log('state ', isMounted)
+  // console.log('render')
   // useEffect(() => {
   //   console.log('primer render')
   //   console.log('isMounted: ', isMounted)
