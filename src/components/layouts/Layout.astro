@@ -14,7 +14,6 @@ const DATA = RESUME_DATA[locale]
 <html lang={locale}>
 	<head>
 		<script is:inline>
-			document.addEventListener('DOMContentLoaded', () => {
 			const getTheme = () => {
 				if (typeof localStorage !== 'undefined') {
 					const storedTheme = localStorage.getItem('theme');
@@ -27,27 +26,39 @@ const DATA = RESUME_DATA[locale]
 				}
 				return 'light';
 			};
-			function applyTheme(toggle = false) {
+
+			function applyTheme(toggle = false, firstTime = true) {
 				let theme = getTheme();
 				if (toggle) {
 					theme = theme === 'dark' ? 'light' : 'dark';
 				}
 				localStorage.setItem('theme', theme);
-				if (theme === 'light') {
-					if (document.documentElement.classList.contains('dark')) {
-						document.documentElement.classList.remove('dark');
-					};
-				} else {
-					document.documentElement.classList.add('dark')
+				
+				if(firstTime) {
+					if (theme === 'dark') {
+						document.documentElement.classList.add('dark')
+					} else {
+						document.documentElement.classList.remove('dark')
+					}
 				}
+				document.startViewTransition(() => {
+					console.log('view transition')
+					if (theme === 'dark') {
+						document.documentElement.classList.add('dark')
+					} else {
+						document.documentElement.classList.remove('dark')
+					}
+				})
 			};
 
-			const themeToggle = document.getElementById('themeToggler');
-			if (!themeToggle) {
-				throw new Error('Theme toggle button not found');
-			}
-			themeToggle.addEventListener("click", () => applyTheme(true));
-			applyTheme();})
+			document.addEventListener('DOMContentLoaded', () => {
+				const themeToggle = document.getElementById('themeToggler');
+				if (!themeToggle) {
+					throw new Error('Theme toggle button not found');
+				}
+				themeToggle.addEventListener("click", () => applyTheme(true, false));
+			})
+			applyTheme(false, true);
 		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
