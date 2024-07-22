@@ -14,32 +14,40 @@ const DATA = RESUME_DATA[locale]
 <html lang={locale}>
 	<head>
 		<script is:inline>
-			const theme = (() => {
-			if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-				return localStorage.getItem('theme')
-			}
-			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				return 'dark'
-			}
-			return 'light'
-			})()
+			document.addEventListener('DOMContentLoaded', () => {
+			const getTheme = () => {
+				if (typeof localStorage !== 'undefined') {
+					const storedTheme = localStorage.getItem('theme');
+					if (storedTheme) {
+						return storedTheme;
+					}
+				}
+				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark';
+				}
+				return 'light';
+			};
+			function applyTheme(toggle = false) {
+				let theme = getTheme();
+				if (toggle) {
+					theme = theme === 'dark' ? 'light' : 'dark';
+				}
+				localStorage.setItem('theme', theme);
+				if (theme === 'light') {
+					if (document.documentElement.classList.contains('dark')) {
+						document.documentElement.classList.remove('dark');
+					};
+				} else {
+					document.documentElement.classList.add('dark')
+				}
+			};
 
-			if (theme === "light") {
-				document.documentElement.classList.remove("dark");
-			} else {
-				document.documentElement.classList.add("dark");
+			const themeToggle = document.getElementById('themeToggler');
+			if (!themeToggle) {
+				throw new Error('Theme toggle button not found');
 			}
-			window.localStorage.setItem("theme", theme);
-
-			// document.addEventListener("astro:after-swap", () => {
-			// 	if (localStorage.getItem("theme") === "dark")
-			// 		document.documentElement.classList.toggle("dark", true);
-
-			// 	if (!document.getElementById("themeToggle").hasAttribute("onclick"))
-			// 		document
-			// 		.getElementById("themeToggle")
-			// 		.addEventListener("click", handleToggleClick);
-			// });
+			themeToggle.addEventListener("click", () => applyTheme(true));
+			applyTheme();})
 		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
