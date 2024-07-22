@@ -34,21 +34,23 @@ const DATA = RESUME_DATA[locale]
 				}
 				localStorage.setItem('theme', theme);
 				
-				// if(firstTime) {
-				// 	if (theme === 'dark') {
-				// 		document.documentElement.classList.add('dark')
-				// 	} else {
-				// 		document.documentElement.classList.remove('dark')
-				// 	}
-				// }
-				document.startViewTransition(() => {
-					console.log('view transition')
+				if(firstTime) {
 					if (theme === 'dark') {
 						document.documentElement.classList.add('dark')
 					} else {
 						document.documentElement.classList.remove('dark')
 					}
-				})
+				} else {
+
+					document.startViewTransition(() => {
+						console.log('view transition')
+						if (theme === 'dark') {
+							document.documentElement.classList.add('dark')
+						} else {
+							document.documentElement.classList.remove('dark')
+						}
+					})
+				}
 			};
 
 			document.addEventListener('DOMContentLoaded', () => {
