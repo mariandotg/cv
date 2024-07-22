@@ -34,13 +34,13 @@ const DATA = RESUME_DATA[locale]
 				}
 				localStorage.setItem('theme', theme);
 				
-				if(firstTime) {
-					if (theme === 'dark') {
-						document.documentElement.classList.add('dark')
-					} else {
-						document.documentElement.classList.remove('dark')
-					}
-				}
+				// if(firstTime) {
+				// 	if (theme === 'dark') {
+				// 		document.documentElement.classList.add('dark')
+				// 	} else {
+				// 		document.documentElement.classList.remove('dark')
+				// 	}
+				// }
 				document.startViewTransition(() => {
 					console.log('view transition')
 					if (theme === 'dark') {
