@@ -11,19 +11,20 @@ export function ToggleTheme() {
         : 'dark'
       : 'dark',
   )
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(true)
   console.log('state ', isMounted)
 
   console.log('render')
-  useEffect(() => {
-    console.log('primer render')
-    console.log('isMounted: ', isMounted)
-    setIsMounted((prev) => !prev)
+  // useEffect(() => {
+  //   console.log('primer render')
+  //   console.log('isMounted: ', isMounted)
+  //   setIsMounted((prev) => !prev)
 
-    console.log('se actualizó isMounted')
-  }, [])
+  //   console.log('se actualizó isMounted')
+  // }, [])
 
   const handleClick = () => {
+    console.log('test')
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
