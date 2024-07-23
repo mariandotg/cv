@@ -34,13 +34,13 @@ const DATA = RESUME_DATA[locale]
 				}
 				localStorage.setItem('theme', theme);
 				
-				if(firstTime) {
-					if (theme === 'dark') {
-						document.documentElement.classList.add('dark')
-					} else {
-						document.documentElement.classList.remove('dark')
-					}
-				} else {
+				// if(firstTime) {
+				// 	if (theme === 'dark') {
+				// 		document.documentElement.classList.add('dark')
+				// 	} else {
+				// 		document.documentElement.classList.remove('dark')
+				// 	}
+				// } else {
 
 					document.startViewTransition(() => {
 						console.log('view transition')
@@ -50,7 +50,7 @@ const DATA = RESUME_DATA[locale]
 							document.documentElement.classList.remove('dark')
 						}
 					})
-				}
+				// }
 			};
 
 			document.addEventListener('DOMContentLoaded', () => {
