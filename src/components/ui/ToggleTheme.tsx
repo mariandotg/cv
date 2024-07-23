@@ -22,10 +22,10 @@ export function ToggleTheme() {
   //   console.log('se actualizó isMounted')
   // }, [])
 
-  // const handleClick = () => {
-  //   console.log('test')
-  //   setTheme(theme === 'light' ? 'dark' : 'light')
-  // }
+  const handleClick = () => {
+    console.log('click')
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
 
   // useEffect(() => {
   //   document.startViewTransition(() => {
@@ -54,7 +54,7 @@ export function ToggleTheme() {
   console.log(theme)
   return (
     <Button
-      // onClick={handleClick}
+      onClick={handleClick}
       id="themeToggler"
       variant={'default'}
       size={'icon'}
