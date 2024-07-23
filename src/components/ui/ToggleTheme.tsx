@@ -22,23 +22,23 @@ export function ToggleTheme() {
   //   console.log('se actualizó isMounted')
   // }, [])
 
-  const handleClick = () => {
-    console.log('test')
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  }
+  // const handleClick = () => {
+  //   console.log('test')
+  //   setTheme(theme === 'light' ? 'dark' : 'light')
+  // }
 
-  useEffect(() => {
-    document.startViewTransition(() => {
-      console.log('view transition')
+  // useEffect(() => {
+  //   document.startViewTransition(() => {
+  //     console.log('view transition')
 
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-    })
-    localStorage.setItem('theme', theme)
-  }, [theme])
+  //     if (theme === 'dark') {
+  //       document.documentElement.classList.add('dark')
+  //     } else {
+  //       document.documentElement.classList.remove('dark')
+  //     }
+  //   })
+  //   localStorage.setItem('theme', theme)
+  // }, [theme])
 
   //   const toggler = document.getElementById('themeToggler')
 
@@ -51,20 +51,16 @@ export function ToggleTheme() {
   // if (!isMounted) {
   //   return <div>test</div> // or null;
   // }
-
+  console.log(theme)
   return (
     <Button
-      onClick={handleClick}
+      // onClick={handleClick}
       id="themeToggler"
       variant={'default'}
       size={'icon'}
       className="size-8"
     >
-      {theme === 'light' ? (
-        <DarkModeIcon className="size-4" />
-      ) : (
-        <LightModeIcon className="size-4" />
-      )}
+      <DarkModeIcon className="size-4" />
     </Button>
   )
 }
