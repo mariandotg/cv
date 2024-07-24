@@ -1,0 +1,42 @@
+---
+import { DICTIONARIES } from '../../../data/dictionaries'
+import { RESUME_DATA } from '../../../data/resume.data'
+import { AvatarComponent } from '../../design-system/Avatar'
+import { GlobeIcon } from '../../icons/GlobeIcon'
+import { SocialMediaList } from '../SocialMediaList'
+import { ToggleTheme } from '../ToggleTheme'
+
+const DATA = RESUME_DATA[Astro.currentLocale || 'en']
+const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
+---
+<div class="flex items-center justify-between">
+    <div class="flex-1 space-y-1.5">
+        <h1 class="text-2xl font-black">{DATA.name}</h1>
+        <p class="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+            {DATA.about}
+        </p>
+        <p class="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
+            <a
+            class="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
+            href={DATA.locationLink}
+            target="_blank"
+            >
+            <GlobeIcon className="size-3" />
+            {DATA.location}
+            </a>
+        </p>
+        <div class="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
+            <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social}>
+                <ToggleTheme client:load />
+            </SocialMediaList>
+        </div>
+        <div class=" flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]"></div>
+    </div>
+
+    <AvatarComponent 
+        src={DATA.avatarUrl}
+        fallbackText={DATA.initials}
+        alt={DATA.name}
+        client:load
+    />
+</div>

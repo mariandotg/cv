@@ -1,0 +1,18 @@
+---
+import { DICTIONARIES } from '../../../data/dictionaries'
+import { RESUME_DATA } from '../../../data/resume.data'
+import { Badge } from '../../design-system/Badge'
+
+const DATA = RESUME_DATA[Astro.currentLocale || 'en']
+const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
+---
+<section class="flex flex-col gap-y-3">
+    <h2 class="text-lg font-bold">{DICTIONARY.SKILLS}</h2>
+    <div class="flex flex-wrap gap-1">
+        {DATA.skills.map((skill) => 
+            <Badge className="print:text-[10px]" variant={"secondary"}>
+                {skill}
+            </Badge>
+        )}
+    </div>
+</section>

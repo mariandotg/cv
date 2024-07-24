@@ -1,0 +1,16 @@
+---
+import { DICTIONARIES } from '../../../data/dictionaries'
+import { RESUME_DATA } from '../../../data/resume.data'
+import { ProjectCard } from '../../design-system/ProjectCard'
+
+const DATA = RESUME_DATA[Astro.currentLocale || 'en']
+const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
+---
+<section class="print-force-new-page flex flex-col gap-y-3">
+    <h2 class="text-lg font-bold">{DICTIONARY.PROJECTS}</h2>
+    <div class="grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
+        {DATA.projects.map((project) => 
+            <ProjectCard project={project} />
+        )}
+    </div>
+</section>

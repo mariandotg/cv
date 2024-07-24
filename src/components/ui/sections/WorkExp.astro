@@ -1,0 +1,14 @@
+---
+import { DICTIONARIES } from '../../../data/dictionaries'
+import { RESUME_DATA } from '../../../data/resume.data'
+import { JobCard } from '../../design-system/JobCard'
+
+const DATA = RESUME_DATA[Astro.currentLocale || 'en']
+const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
+---
+<section class="flex min-h-0 flex-col gap-y-3">
+    <h2 class="text-lg font-bold">{DICTIONARY.WORK_EXP}</h2>
+    {DATA.work.reverse().map((work) => 
+        <JobCard work={work} />
+    )}
+</section>
