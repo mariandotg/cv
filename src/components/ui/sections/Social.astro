@@ -27,7 +27,7 @@ const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
                 {DATA.location}
                 </a>
             </p>
-            <div class="gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden hidden sm:flex">
+            <div class="gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden hidden smx:flex">
                 <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social}>
                     <ToggleTheme client:load />
                 </SocialMediaList>
@@ -42,7 +42,7 @@ const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
             client:load
         />
     </div>
-    <div class="gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden flex sm:hidden">
+    <div class="gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden flex smx:hidden">
         <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social}>
             <ToggleTheme client:load />
         </SocialMediaList>
