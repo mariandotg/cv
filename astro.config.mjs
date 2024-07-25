@@ -12,6 +12,10 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"],
     },
+    i18n: {
+      defaultLocale,
+      locales: localesArray
+    },
   }),],
   i18n: {
     defaultLocale,
