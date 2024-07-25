@@ -7,6 +7,7 @@ export interface Welcome {
   summary: string
   avatarUrl: string
   personalWebsiteUrl: string
+  resumeUrl: string
   contact: Contact
   work: Work[]
   skills: string[]

@@ -29,7 +29,7 @@ const DICTIONARY = DICTIONARIES[locale]
                 </a>
             </p>
             <div class="gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden hidden smx:flex">
-                <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social} locale={locale}>
+                <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social} resume={DATA.resumeUrl} locale={locale}>
                     <ToggleTheme client:load />
                 </SocialMediaList>
             </div>
@@ -44,7 +44,7 @@ const DICTIONARY = DICTIONARIES[locale]
         />
     </div>
     <div class="gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden flex smx:hidden">
-        <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social} locale={locale}>
+        <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social} resume={DATA.resumeUrl} locale={locale}>
             <ToggleTheme client:load />
         </SocialMediaList>
     </div>

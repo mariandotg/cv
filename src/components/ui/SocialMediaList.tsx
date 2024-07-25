@@ -6,9 +6,11 @@ import { MailIcon } from '../icons/MailIcon'
 export interface SocialMediaListProps {
   email: string
   socials: readonly Social[]
+  resume: string
   children: ReactNode
   locale: string
 }
+
 const LOCALIZED_LABELS = {
   es: {
     EMAIL: 'Escribeme un email',
@@ -19,9 +21,11 @@ const LOCALIZED_LABELS = {
     SOCIAL: 'Find me on',
   },
 } as { [index: string]: { EMAIL: string; SOCIAL: string } }
+
 const SocialMediaList = ({
   email,
   socials,
+  resume,
   children,
   locale,
 }: SocialMediaListProps) => {
@@ -60,11 +64,7 @@ const SocialMediaList = ({
       ))}
       {children}
       <Button className="h-8" variant="default" size="sm" asChild>
-        <a
-          href={`mailto:${email}`}
-          target="_blank"
-          referrerPolicy="no-referrer"
-        >
+        <a href={resume} target="_blank" referrerPolicy="no-referrer">
           Descargar CV
         </a>
       </Button>
