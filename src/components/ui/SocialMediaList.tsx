@@ -42,7 +42,7 @@ const SocialMediaList = ({
         </Button>
       ))}
       {children}
-      <Button className="h-8" variant="default" size="sm">
+      <Button className="h-8" variant="default" size="sm" asChild>
         <a
           href={`mailto:${email}`}
           target="_blank"
