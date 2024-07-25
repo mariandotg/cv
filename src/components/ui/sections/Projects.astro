@@ -3,8 +3,9 @@ import { DICTIONARIES } from '../../../data/dictionaries'
 import { RESUME_DATA } from '../../../data/resume.data'
 import { ProjectCard } from '../../design-system/ProjectCard'
 
-const DATA = RESUME_DATA[Astro.currentLocale || 'en']
-const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
+const locale = Astro.currentLocale || 'en'
+const DATA = RESUME_DATA[locale]
+const DICTIONARY = DICTIONARIES[locale]
 ---
 <section class="print-force-new-page flex flex-col gap-y-3">
     <h2 class="text-lg font-bold">{DICTIONARY.PROJECTS}</h2>

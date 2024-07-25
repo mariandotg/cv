@@ -6,8 +6,9 @@ import { GlobeIcon } from '../../icons/GlobeIcon'
 import { SocialMediaList } from '../SocialMediaList'
 import { ToggleTheme } from '../ToggleTheme'
 
-const DATA = RESUME_DATA[Astro.currentLocale || 'en']
-const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
+const locale = Astro.currentLocale || 'en'
+const DATA = RESUME_DATA[locale]
+const DICTIONARY = DICTIONARIES[locale]
 ---
 
 <div class="flex items-start justify-between flex-col gap-y-2">
@@ -28,7 +29,7 @@ const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
                 </a>
             </p>
             <div class="gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden hidden smx:flex">
-                <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social}>
+                <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social} locale={locale}>
                     <ToggleTheme client:load />
                 </SocialMediaList>
             </div>
@@ -43,7 +44,7 @@ const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
         />
     </div>
     <div class="gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden flex smx:hidden">
-        <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social}>
+        <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social} locale={locale}>
             <ToggleTheme client:load />
         </SocialMediaList>
     </div>

@@ -26,7 +26,7 @@ const JobCard: React.FunctionComponent<Props> = ({ work }) => {
               ))}
             </span> */}
           </h3>
-          <div className="text-sm tabular-nums text-gray-500">
+          <div className="text-sm tabular-nums text-gray-400">
             {work.start} - {work.end ?? 'Present'}
           </div>
         </div>

@@ -56,8 +56,9 @@ export function ToggleTheme() {
     <Button
       onClick={handleClick}
       id="themeToggler"
-      variant={'default'}
-      size={'icon'}
+      aria-label="Toggle Theme"
+      variant="default"
+      size="icon"
       className="size-8"
     >
       {theme === 'light' ? (

@@ -2,25 +2,37 @@ import { type ReactNode } from 'react'
 import type { Social } from '../../models/resume.data.models'
 import { Button } from '../design-system/Button'
 import { MailIcon } from '../icons/MailIcon'
-import { ToggleTheme } from './ToggleTheme'
 
 export interface SocialMediaListProps {
   email: string
   socials: readonly Social[]
   children: ReactNode
+  locale: string
 }
-
+const LOCALIZED_LABELS = {
+  es: {
+    EMAIL: 'Escribeme un email',
+    SOCIAL: 'Encontrame en',
+  },
+  en: {
+    EMAIL: 'Write me an email',
+    SOCIAL: 'Find me on',
+  },
+} as { [index: string]: { EMAIL: string; SOCIAL: string } }
 const SocialMediaList = ({
   email,
   socials,
   children,
+  locale,
 }: SocialMediaListProps) => {
+  console.log(locale)
   return (
     <>
       {email ? (
         <Button className="size-8" variant="secondary" size="icon" asChild>
           <a
             href={`mailto:${email}`}
+            aria-label={LOCALIZED_LABELS[locale].EMAIL}
             target="_blank"
             referrerPolicy="no-referrer"
           >
@@ -36,7 +48,12 @@ const SocialMediaList = ({
           size="icon"
           asChild
         >
-          <a href={social.url} target="_blank" referrerPolicy="no-referrer">
+          <a
+            href={social.url}
+            aria-label={`${LOCALIZED_LABELS[locale].SOCIAL} ${social.name}`}
+            target="_blank"
+            referrerPolicy="no-referrer"
+          >
             <social.icon className="size-4" />
           </a>
         </Button>

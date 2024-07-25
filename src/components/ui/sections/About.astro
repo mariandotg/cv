@@ -2,8 +2,9 @@
 import { DICTIONARIES } from '../../../data/dictionaries'
 import { RESUME_DATA } from '../../../data/resume.data'
 
-const DATA = RESUME_DATA[Astro.currentLocale || 'en']
-const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
+const locale = Astro.currentLocale || 'en'
+const DATA = RESUME_DATA[locale]
+const DICTIONARY = DICTIONARIES[locale]
 ---
 <section>
     <h2 class="text-lg font-bold">{DICTIONARY.ABOUT}</h2>

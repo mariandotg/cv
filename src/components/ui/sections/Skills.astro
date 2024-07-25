@@ -3,8 +3,9 @@ import { DICTIONARIES } from '../../../data/dictionaries'
 import { RESUME_DATA } from '../../../data/resume.data'
 import { Badge } from '../../design-system/Badge'
 
-const DATA = RESUME_DATA[Astro.currentLocale || 'en']
-const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
+const locale = Astro.currentLocale || 'en'
+const DATA = RESUME_DATA[locale]
+const DICTIONARY = DICTIONARIES[locale]
 ---
 <section class="flex flex-col gap-y-3">
     <h2 class="text-lg font-bold">{DICTIONARY.SKILLS}</h2>
