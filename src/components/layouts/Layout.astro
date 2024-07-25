@@ -91,6 +91,16 @@ const DATA = RESUME_DATA[locale]
 				],
 			}}
 		/>
+		<!-- Google tag (gtag.js) -->
+		<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-M6PHEWNC7H"></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-M6PHEWNC7H');
+		</script>
+		<link rel="sitemap" href="/sitemap-index.xml" />
 	</head>
 	<body>
 		<slot />
