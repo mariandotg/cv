@@ -12,7 +12,7 @@ const EN_DATA = {
     'Backend Developer committed to creating efficient and scalable solutions.',
   summary:
     'As a Backend Developer, I specialize in building robust and scalable systems from concept to implementation. I excel in optimizing backend performance and ensuring seamless integration with front-end services. Currently, I work mostly with Java, Spring Boot, and MySQL, but I did work a lot with Node.js . I have over 3 years of experience working remotely with companies worldwide.',
-  avatarUrl: 'me.jpg',
+  avatarUrl: 'me.webp',
   personalWebsiteUrl: 'https://marianoguillaume.com',
   contact: {
     email: 'marianguillaume.m@gmail.com',
@@ -120,7 +120,7 @@ const ES_DATA = {
     'Desarrollador Backend comprometido con la creación de soluciones eficientes y escalables.',
   summary:
     'Como desarrollador backend, me especializo en crear sistemas robustos y escalables desde el concepto hasta la implementación. Me destaco en la optimización del rendimiento del backend y en garantizar una integración perfecta con los servicios de front-end. Actualmente, trabajo principalmente con Java, Spring Boot y MySQL, pero trabajé mucho con Node.js. Tengo más de 3 años de experiencia trabajando de forma remota con empresas de todo el mundo.',
-  avatarUrl: 'me.jpg',
+  avatarUrl: 'me.webp',
   personalWebsiteUrl: 'https://marianoguillaume.com/es',
   contact: {
     email: 'marianguillaume.m@gmail.com',
