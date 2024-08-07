@@ -15,7 +15,7 @@ const DICTIONARY = DICTIONARIES[locale]
     <h1 class="text-2xl font-black">{DATA.name}</h1>
     <div class="flex items-center justify-between gap-x-2 md:gap-x-4 w-full">
         <div class="space-y-1.5">
-            <p class="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+            <p class="max-w-md text-pretty text-muted-foreground print:text-[12px]">
                 {DATA.about}
             </p>
             <p class="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
@@ -28,12 +28,12 @@ const DICTIONARY = DICTIONARIES[locale]
                 {DATA.location}
                 </a>
             </p>
-            <div class="gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden hidden smx:flex">
+            <div class="gap-x-1 pt-1 text-muted-foreground print:hidden hidden smx:flex">
                 <SocialMediaList email={DATA.contact.email} socials={DATA.contact.social} resume={DATA.resumeUrl} locale={locale}>
                     <ToggleTheme client:load />
                 </SocialMediaList>
             </div>
-            <div class=" flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]"></div>
+            <!-- <div class=" flex-col gap-x-1 text-muted-foreground print:flex print:text-[12px]"></div> -->
         </div>
 
         <AvatarComponent 

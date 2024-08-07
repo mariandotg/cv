@@ -10,6 +10,8 @@ import Projects from '../components/ui/sections/Projects.astro'
 
 const DATA = RESUME_DATA['en']
 const DICTIONARY = DICTIONARIES['en']
+console.log('v ', process.env.npm_package_version)
+const VERSION = process.env.npm_package_version
 ---
 
 <Layout title="Welcome to Astro.">
@@ -22,4 +24,7 @@ const DICTIONARY = DICTIONARIES['en']
 		  	<Projects />
 		</section>
 	</main>
+	<footer class="flex justify-center text-gray-600 pb-20">
+		Online Open CV v.{VERSION} made by Mariano Guillaume
+	</footer>
 </Layout>

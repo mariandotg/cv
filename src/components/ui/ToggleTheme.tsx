@@ -21,10 +21,46 @@ export function ToggleTheme() {
 
   //   console.log('se actualizó isMounted')
   // }, [])
-
+  const getTheme = () => {
+    if (typeof localStorage !== 'undefined') {
+      const storedTheme = localStorage.getItem('theme')
+      if (storedTheme) {
+        return storedTheme
+      }
+    }
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      return 'dark'
+    }
+    return 'light'
+  }
   const handleClick = () => {
     console.log('click')
     setTheme(theme === 'light' ? 'dark' : 'light')
+    let themeLocal = getTheme()
+    themeLocal = theme === 'dark' ? 'light' : 'dark'
+    console.log('test apply theme')
+    localStorage.setItem('theme', theme)
+
+    // if(firstTime) {
+    // 	if (theme === 'dark') {
+    // 		document.documentElement.classList.add('dark')
+    // 	} else {
+    // 		document.documentElement.classList.remove('dark')
+    // 	}
+    // } else {
+
+    // document.startViewTransition(() => {
+    console.log('view transition')
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+    // })
+    // }
   }
 
   // useEffect(() => {
