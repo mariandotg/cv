@@ -15,6 +15,7 @@ export function getStaticPaths() {
 
 const DATA = RESUME_DATA[Astro.currentLocale || 'en']
 const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
+const VERSION = process.env.npm_package_version
 ---
 
 <Layout title="Welcome to Astro.">
@@ -27,4 +28,7 @@ const DICTIONARY = DICTIONARIES[Astro.currentLocale || 'en']
 		  	<Projects />
 		</section>
 	</main>
+	<footer class="flex justify-center text-gray-600 pb-20">
+		Online Open CV v.{VERSION} made by Mariano Guillaume
+	</footer>
 </Layout>
