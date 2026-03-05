@@ -8,6 +8,18 @@ interface Props {
 
 const locale = Astro.currentLocale || 'en'
 const DATA = RESUME_DATA[locale]
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: DATA.name,
+  description: DATA.about,
+  url: DATA.personalWebsiteUrl,
+  sameAs: [
+    ...DATA.contact.social.map((s) => s.url),
+    DATA.personalWebsiteUrl,
+  ],
+}
 ---
 
 <!doctype html>
@@ -27,31 +39,17 @@ const DATA = RESUME_DATA[locale]
 				return 'light';
 			};
 
-			function applyTheme(toggle = false, firstTime = true) {
+			function applyTheme(toggle = false) {
 				let theme = getTheme();
 				if (toggle) {
 					theme = theme === 'dark' ? 'light' : 'dark';
 				}
-				console.log("test apply theme")
 				localStorage.setItem('theme', theme);
-				
-				// if(firstTime) {
-				// 	if (theme === 'dark') {
-				// 		document.documentElement.classList.add('dark')
-				// 	} else {
-				// 		document.documentElement.classList.remove('dark')
-				// 	}
-				// } else {
-
-					// document.startViewTransition(() => {
-						console.log('view transition')
-						if (theme === 'dark') {
-							document.documentElement.classList.add('dark')
-						} else {
-							document.documentElement.classList.remove('dark')
-						}
-					// })
-				// }
+				if (theme === 'dark') {
+					document.documentElement.classList.add('dark')
+				} else {
+					document.documentElement.classList.remove('dark')
+				}
 			};
 
 			document.addEventListener('DOMContentLoaded', () => {
@@ -59,15 +57,16 @@ const DATA = RESUME_DATA[locale]
 				if (!themeToggle) {
 					throw new Error('Theme toggle button not found');
 				}
-				themeToggle.addEventListener("click", () => applyTheme(true, false));
+				themeToggle.addEventListener("click", () => applyTheme(true));
 			})
-			applyTheme(false, true);
+			applyTheme();
 		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<SEO
 			title={DATA.name}
 			description={DATA.about}
+			canonical={canonical}
 			openGraph={{
 				basic: {
 					title: DATA.name,
@@ -102,8 +101,15 @@ const DATA = RESUME_DATA[locale]
 			gtag('config', 'G-M6PHEWNC7H');
 		</script>
 		<link rel="sitemap" href="/sitemap-index.xml" />
+		<script type="application/ld+json" set:text={JSON.stringify(jsonLd)} />
 	</head>
 	<body>
+		<a
+			href="#main-content"
+			class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:px-4 focus:py-2 focus:bg-background focus:text-foreground"
+		>
+			Skip to main content
+		</a>
 		<slot />
 	</body>
 </html>
@@ -226,6 +232,32 @@ const DATA = RESUME_DATA[locale]
 		}
 		to {
 			clip-path: polygon(50% -200%, -100% 200%, 200% 200%);
+		}
+	}
+
+	@media print {
+		@page {
+			margin: 1.5cm;
+		}
+
+		body {
+			background: white !important;
+			color: black !important;
+			font-size: 11pt;
+			line-height: 1.4;
+		}
+
+		#themeToggler,
+		.print\:hidden {
+			display: none !important;
+		}
+
+		.card {
+			border: 1px solid #ccc !important;
+		}
+
+		.print-avoid-break {
+			page-break-inside: avoid;
 		}
 	}
 </style>

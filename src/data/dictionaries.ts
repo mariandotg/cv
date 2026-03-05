@@ -7,6 +7,7 @@ const EN_DICTIONARY: Dictionary = {
   PROJECTS: 'Projects',
   SKILLS: 'Skills',
   WORK_EXP: 'Work Experience',
+  CERTIFICATES: 'Certificates',
 }
 
 const ES_DICTIONARY: Dictionary = {
@@ -16,6 +17,7 @@ const ES_DICTIONARY: Dictionary = {
   PROJECTS: 'Proyectos',
   SKILLS: 'Habilidades',
   WORK_EXP: 'Experiencia Laboral',
+  CERTIFICATES: 'Certificaciones',
 }
 
 const DICTIONARIES = {

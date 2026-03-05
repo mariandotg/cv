@@ -5,6 +5,7 @@ export interface Dictionary {
   CURRENT_JOB: string
   SKILLS: string
   PROJECTS: string
+  CERTIFICATES: string
 }
 
 export type Dictionaries = Record<string, Dictionary>

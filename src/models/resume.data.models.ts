@@ -1,3 +1,10 @@
+export interface Certificate {
+  title: string
+  issuer: string
+  date: string
+  url: string
+}
+
 export interface Welcome {
   name: string
   initials: string
@@ -12,6 +19,7 @@ export interface Welcome {
   work: Work[]
   skills: string[]
   projects: Project[]
+  certificates: Certificate[]
 }
 
 export interface Contact {
@@ -37,10 +45,18 @@ export interface Link {
   href: string
 }
 
+export interface WorkClient {
+  name: string
+  bullets: readonly string[]
+  techStack?: readonly string[]
+}
+
 export interface Work {
   company: string
   title: string
   start: string
   end: null | string
   description: string
+  bullets?: readonly string[]
+  clients?: readonly WorkClient[]
 }

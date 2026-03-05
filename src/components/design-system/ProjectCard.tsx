@@ -23,6 +23,7 @@ const ProjectCard: React.FunctionComponent<Props> = ({ project }) => {
               <a
                 href={project.link.href}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 hover:underline"
               >
                 {project.title}

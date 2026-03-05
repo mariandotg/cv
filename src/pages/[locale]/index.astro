@@ -7,6 +7,7 @@ import About from '../../components/ui/sections/About.astro'
 import WorkExp from '../../components/ui/sections/WorkExp.astro'
 import Skills from '../../components/ui/sections/Skills.astro'
 import Projects from '../../components/ui/sections/Projects.astro'
+import Certificates from '../../components/ui/sections/Certificates.astro'
 import Social from '../../components/ui/sections/Social.astro'
 
 export function getStaticPaths() {
@@ -19,13 +20,14 @@ const VERSION = process.env.npm_package_version
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+	<main id="main-content" class="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
 		<section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-4">
 			<Social />
 			<About />
 		  	<WorkExp />
 		  	<Skills />
 		  	<Projects />
+		  	<Certificates />
 		</section>
 	</main>
 	<footer class="flex justify-center text-gray-600 pb-20">
