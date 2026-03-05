@@ -58,5 +58,6 @@ export interface Work {
   end: null | string
   description: string
   bullets?: readonly string[]
+  techStack?: readonly string[]
   clients?: readonly WorkClient[]
 }

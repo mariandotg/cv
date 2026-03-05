@@ -34,6 +34,19 @@ const JobCard: React.FunctionComponent<Props> = ({ work }) => {
         ) : (
           work.description
         )}
+        {work.techStack && work.techStack.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1">
+            {work.techStack.map((tech) => (
+              <Badge
+                key={tech}
+                variant="secondary"
+                className="text-xs print:text-[8px] print:leading-tight print:px-1 print:py-0.5"
+              >
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        )}
         {work.clients && work.clients.length > 0 && (
           <div className="mt-4 flex flex-col gap-2">
             {work.clients.map((client) => (
