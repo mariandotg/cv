@@ -1,17 +1,44 @@
 ---
 import { DICTIONARIES } from '../../../data/dictionaries'
-import { RESUME_DATA } from '../../../data/resume.data'
+import { RESUME_DATA } from '../../../data/resume.datav2'
 import { ProjectCard } from '../../design-system/ProjectCard'
 
 const locale = Astro.currentLocale || 'en'
 const DATA = RESUME_DATA[locale]
 const DICTIONARY = DICTIONARIES[locale]
+
+const githubUrl = DATA.contact.social.find((s) => s.name === 'GitHub')?.url
+
+const PLACEHOLDER = {
+  en: {
+    message: "Currently working on personal projects to feature here.",
+    cta: "Browse my repos on GitHub",
+  },
+  es: {
+    message: "Actualmente trabajando en proyectos personales para mostrar aquí.",
+    cta: "Ver mis repositorios en GitHub",
+  },
+} as { [key: string]: { message: string; cta: string } }
+
+const placeholder = PLACEHOLDER[locale] ?? PLACEHOLDER.en
 ---
 <section class="print-force-new-page flex flex-col gap-y-3">
     <h2 class="text-lg font-bold">{DICTIONARY.PROJECTS}</h2>
-    <div class="grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
-        {DATA.projects.map((project) => 
-            <ProjectCard project={project} />
-        )}
-    </div>
+    {DATA.projects.length > 0 ? (
+      <div class="grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
+          {DATA.projects.map((project) =>
+              <ProjectCard project={project} />
+          )}
+      </div>
+    ) : (
+      <div class="flex items-start gap-3 rounded-lg border border-dashed border-border bg-card px-4 py-3 text-sm text-muted-foreground">
+        <span class="mt-0.5 text-base">🚧</span>
+        <span>
+          {placeholder.message}
+          {githubUrl && (
+            <> <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="font-medium text-foreground underline underline-offset-2 hover:text-primary transition-colors">{placeholder.cta}</a>.</>
+          )}
+        </span>
+      </div>
+    )}
 </section>

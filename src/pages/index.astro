@@ -1,6 +1,6 @@
 ---
 import Layout from '../components/layouts/Layout.astro'
-import { RESUME_DATA } from '../data/resume.data'
+import { RESUME_DATA } from '../data/resume.datav2'
 import { DICTIONARIES } from '../data/dictionaries'
 import Social from '../components/ui/sections/Social.astro'
 import About from '../components/ui/sections/About.astro'
@@ -8,6 +8,7 @@ import WorkExp from '../components/ui/sections/WorkExp.astro'
 import Skills from '../components/ui/sections/Skills.astro'
 import Projects from '../components/ui/sections/Projects.astro'
 import Certificates from '../components/ui/sections/Certificates.astro'
+import Education from '../components/ui/sections/Education.astro'
 
 const DATA = RESUME_DATA['en']
 const DICTIONARY = DICTIONARIES['en']
@@ -20,6 +21,7 @@ const VERSION = process.env.npm_package_version
 			<Social />
 			<About />
 		  	<WorkExp />
+		  	<Education />
 		  	<Skills />
 		  	<Projects />
 		  	<Certificates />

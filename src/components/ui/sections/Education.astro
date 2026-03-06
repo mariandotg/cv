@@ -1,0 +1,22 @@
+---
+import { DICTIONARIES } from '../../../data/dictionaries'
+import { RESUME_DATA } from '../../../data/resume.datav2'
+
+const locale = Astro.currentLocale || 'en'
+const DATA = RESUME_DATA[locale]
+const DICTIONARY = DICTIONARIES[locale]
+---
+<section class="flex min-h-0 flex-col gap-y-3">
+  <h2 class="text-lg font-bold">{DICTIONARY.EDUCATION}</h2>
+  {DATA.education.map((edu) => (
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="font-semibold text-sm leading-none">{edu.institution}</p>
+        <p class="text-sm text-muted-foreground mt-1">{edu.degree}</p>
+      </div>
+      <span class="text-sm tabular-nums text-gray-400 shrink-0">
+        {edu.start} — {edu.end ?? DICTIONARY.IN_PROGRESS}
+      </span>
+    </div>
+  ))}
+</section>

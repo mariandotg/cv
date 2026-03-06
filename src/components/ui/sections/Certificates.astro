@@ -1,6 +1,6 @@
 ---
 import { DICTIONARIES } from '../../../data/dictionaries'
-import { RESUME_DATA } from '../../../data/resume.data'
+import { RESUME_DATA } from '../../../data/resume.datav2'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../../design-system/Card'
 import { Badge } from '../../design-system/Badge'
 
@@ -12,29 +12,26 @@ const DICTIONARY = DICTIONARIES[locale]
     <h2 class="text-lg font-bold">{DICTIONARY.CERTIFICATES}</h2>
     <div class="grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
         {DATA.certificates.map((cert) => (
-            <Card className="print-avoid-break bg-transparent">
-                <CardHeader>
-                    <div class="flex items-start justify-between gap-x-2">
-                        <CardTitle className="text-base font-semibold leading-none">
-                            {cert.title}
-                        </CardTitle>
-                        <Badge variant="secondary" className="shrink-0 text-xs">{cert.date}</Badge>
-                    </div>
-                    <CardDescription className="text-sm text-muted-foreground">
-                        {cert.issuer}
-                    </CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <a
-                        href={cert.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-1 font-mono text-xs hover:underline text-muted-foreground"
-                    >
-                        View PDF
-                    </a>
-                </CardContent>
-            </Card>
+            <a
+                href={cert.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block"
+            >
+                <Card className="print-avoid-break bg-transparent cursor-pointer transition-all hover:ring-1 hover:ring-border hover:bg-muted/30 p-3">
+                    <CardHeader>
+                        <div class="flex items-start justify-between gap-x-2">
+                            <CardTitle className="text-base font-semibold leading-none">
+                                {cert.title}
+                            </CardTitle>
+                            <Badge variant="secondary" className="shrink-0 text-xs">{cert.date}</Badge>
+                        </div>
+                        <CardDescription className="text-sm text-muted-foreground">
+                            {cert.issuer}
+                        </CardDescription>
+                    </CardHeader>
+                </Card>
+            </a>
         ))}
     </div>
 </section>

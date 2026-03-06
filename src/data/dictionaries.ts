@@ -8,6 +8,8 @@ const EN_DICTIONARY: Dictionary = {
   SKILLS: 'Skills',
   WORK_EXP: 'Work Experience',
   CERTIFICATES: 'Certificates',
+  EDUCATION: 'Education',
+  IN_PROGRESS: 'In Progress',
 }
 
 const ES_DICTIONARY: Dictionary = {
@@ -18,6 +20,8 @@ const ES_DICTIONARY: Dictionary = {
   SKILLS: 'Habilidades',
   WORK_EXP: 'Experiencia Laboral',
   CERTIFICATES: 'Certificaciones',
+  EDUCATION: 'Educación',
+  IN_PROGRESS: 'En curso',
 }
 
 const DICTIONARIES = {

@@ -1,6 +1,6 @@
 ---
 import Layout from '../../components/layouts/Layout.astro'
-import { RESUME_DATA } from '../../data/resume.data'
+import { RESUME_DATA } from '../../data/resume.datav2'
 import { staticLocalePaths } from '../../data/locales'
 import { DICTIONARIES } from '../../data/dictionaries'
 import About from '../../components/ui/sections/About.astro'
@@ -9,6 +9,7 @@ import Skills from '../../components/ui/sections/Skills.astro'
 import Projects from '../../components/ui/sections/Projects.astro'
 import Certificates from '../../components/ui/sections/Certificates.astro'
 import Social from '../../components/ui/sections/Social.astro'
+import Education from '../../components/ui/sections/Education.astro'
 
 export function getStaticPaths() {
   return staticLocalePaths
@@ -25,6 +26,7 @@ const VERSION = process.env.npm_package_version
 			<Social />
 			<About />
 		  	<WorkExp />
+		  	<Education />
 		  	<Skills />
 		  	<Projects />
 		  	<Certificates />

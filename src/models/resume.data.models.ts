@@ -5,6 +5,13 @@ export interface Certificate {
   url: string
 }
 
+export interface Education {
+  institution: string
+  degree: string
+  start: string
+  end: string | null
+}
+
 export interface Welcome {
   name: string
   initials: string
@@ -17,6 +24,7 @@ export interface Welcome {
   resumeUrl: string
   contact: Contact
   work: Work[]
+  education: Education[]
   skills: string[]
   projects: Project[]
   certificates: Certificate[]
