@@ -12,7 +12,14 @@ const JobCard: React.FunctionComponent<Props> = ({ work }) => {
     <Card key={work.company} className="print-avoid-break bg-transparent">
       <CardHeader>
         <div className="flex items-center justify-between gap-x-2 text-base">
-          <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
+          <h3 className="inline-flex items-center gap-x-2 font-semibold leading-none">
+            {work.logo && (
+              <img
+                src={work.logo}
+                alt={`${work.company} logo`}
+                className="size-5 rounded object-contain bg-white p-0.5"
+              />
+            )}
             {work.company}
           </h3>
           <div className="text-sm tabular-nums text-gray-400">
@@ -54,7 +61,16 @@ const JobCard: React.FunctionComponent<Props> = ({ work }) => {
                 key={client.name}
                 className="rounded-md border border-border bg-card p-3 print-avoid-break"
               >
-                <p className="text-sm font-semibold">{client.name}</p>
+                <div className="flex items-center gap-2">
+                  {client.logo && (
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      className="size-5 rounded object-contain bg-white p-0.5"
+                    />
+                  )}
+                  <p className="text-sm font-semibold">{client.name}</p>
+                </div>
                 <ul className="mt-2 ml-4 list-disc flex flex-col gap-1">
                   {client.bullets.map((bullet, i) => (
                     <li key={i} className="text-sm text-muted-foreground print:text-[9px]">

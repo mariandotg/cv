@@ -60,6 +60,7 @@ const EN_DATA = {
     },
     {
       company: 'Stefanini',
+      logo: '/logos/stefanini.png',
       title: 'SemiSenior Full Stack Developer',
       start: '2024',
       end: '2025',
@@ -68,6 +69,7 @@ const EN_DATA = {
       clients: [
         {
           name: 'RCI (Renault Credit International)',
+          logo: '/logos/rci.png',
           bullets: [
             'Owned end-to-end delivery of Hub Digital (~200 users), an internal document management platform for expense reports, insurance requests, and vendor invoices—including production deployments and ongoing technical support.',
             'Delivered a commission tracking module enabling the business to automate commission calculations for the first time, processing FTP-uploaded CSV files via a scheduled batch job.',
@@ -78,6 +80,7 @@ const EN_DATA = {
         },
         {
           name: 'Interbanking',
+          logo: '/logos/interbanking.ico',
           bullets: [
             'Engineered 2 of 5 Quarkus microservices in the decomposition of Interbanking\'s Java 8 monolith, replacing legacy infrastructure for the VEP payment platform serving 40k+ companies paying AFIP tax obligations.',
             'Built a payment service with idempotency and distributed locking, eliminating race conditions under high concurrent load.',
@@ -88,6 +91,7 @@ const EN_DATA = {
     },
     {
       company: 'Stefanini',
+      logo: '/logos/stefanini.png',
       title: 'Tech Lead',
       start: '2025',
       end: null,
@@ -96,6 +100,7 @@ const EN_DATA = {
       clients: [
         {
           name: 'RCI (Renault Credit International)',
+          logo: '/logos/rci.png',
           bullets: [
             'Lead a cross-functional team of 2 developers and 1 QA engineer, authoring functional specs and technical documents to reduce ambiguity and maintain delivery pace.',
             'Lead the design of a proprietary LLM + template-based OCR system for invoice text extraction, projected to reduce cloud infrastructure costs by up to 80%.',
@@ -106,6 +111,7 @@ const EN_DATA = {
         },
         {
           name: 'Banco Macro',
+          logo: '/logos/banco-macro.png',
           bullets: [
             'Serve as development module lead for Sainapse at Banco Macro, acting as primary technical contact for client engineers adopting an AI-powered platform that uses LLMs for automated code analysis.',
             'Coordinate across a PM, QA lead, and 2 DevOps engineers to scope and ship product upgrades (including bug fixes and new features) aligned with Banco Macro\'s enterprise requirements.',
@@ -116,6 +122,7 @@ const EN_DATA = {
         },
         {
           name: 'Ford',
+          logo: '/logos/ford.ico',
           bullets: [
             'Conduct technical interviews and assess mid-to-senior engineering candidates for Ford-related engineering positions.',
           ],
@@ -207,6 +214,7 @@ const ES_DATA = {
     },
     {
       company: 'Stefanini',
+      logo: '/logos/stefanini.png',
       title: 'Desarrollador Full Stack SemiSenior',
       start: '2024',
       end: '2025',
@@ -215,6 +223,7 @@ const ES_DATA = {
       clients: [
         {
           name: 'RCI (Renault Credit International)',
+          logo: '/logos/rci.png',
           bullets: [
             'Tuve ownership completo de Hub Digital (~200 usuarios), plataforma interna de gestión documental para rendiciones de gastos, seguros y facturas de proveedores, incluyendo deploys en producción y soporte técnico continuo.',
             'Entregué un módulo de seguimiento de comisiones que automatizó este proceso por primera vez, procesando archivos CSV subidos por FTP mediante un job programado.',
@@ -225,6 +234,7 @@ const ES_DATA = {
         },
         {
           name: 'Interbanking',
+          logo: '/logos/interbanking.ico',
           bullets: [
             'Desarrollé 2 de los 5 microservicios en Quarkus para la descomposición del monolito Java 8 de Interbanking, reemplazando infraestructura legacy en la plataforma de pago de VEPs utilizada por más de 40k empresas.',
             'Construí un servicio de pago con idempotencia y lock distribuido, eliminando race conditions bajo alta carga concurrente.',
@@ -235,6 +245,7 @@ const ES_DATA = {
     },
     {
       company: 'Stefanini',
+      logo: '/logos/stefanini.png',
       title: 'Tech Lead',
       start: '2025',
       end: null,
@@ -243,6 +254,7 @@ const ES_DATA = {
       clients: [
         {
           name: 'RCI (Renault Credit International)',
+          logo: '/logos/rci.png',
           bullets: [
             'Lidero un equipo cross-funcional de 2 desarrolladores y 1 QA, redactando especificaciones funcionales y documentos técnicos para reducir la ambigüedad y sostener la cadencia de entrega.',
             'Lidero el diseño de un sistema OCR propio basado en LLMs y templates para extracción de texto de facturas, con una reducción proyectada de hasta el 80% en costos de infraestructura en la nube.',
@@ -253,6 +265,7 @@ const ES_DATA = {
         },
         {
           name: 'Banco Macro',
+          logo: '/logos/banco-macro.png',
           bullets: [
             'Lidero el módulo de desarrollo de Sainapse en Banco Macro, siendo el referente técnico principal para los ingenieros del cliente que adoptan una plataforma potenciada por IA para análisis automático de código.',
             'Coordino un equipo compuesto por un PM, un líder de QA y 2 DevOps para definir y entregar mejoras al producto (incluyendo correcciones de bugs y nuevas funcionalidades) alineadas con los requerimientos enterprise de Banco Macro.',
@@ -263,6 +276,7 @@ const ES_DATA = {
         },
         {
           name: 'Ford',
+          logo: '/logos/ford.ico',
           bullets: [
             'Realizo entrevistas técnicas y evalúo candidatos de nivel semi-senior y senior para posiciones de ingeniería vinculadas al cliente Ford.',
           ],

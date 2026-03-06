@@ -55,12 +55,14 @@ export interface Link {
 
 export interface WorkClient {
   name: string
+  logo?: string
   bullets: readonly string[]
   techStack?: readonly string[]
 }
 
 export interface Work {
   company: string
+  logo?: string
   title: string
   start: string
   end: null | string
