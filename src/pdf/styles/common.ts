@@ -26,8 +26,8 @@ export const commonStyles = StyleSheet.create({
     marginBottom: 6,
   },
   thickRule: {
-    borderBottomWidth: 1.5,
-    borderBottomColor: THEME.colors.rule,
+    borderBottomWidth: 1.25,
+    borderBottomColor: THEME.colors.black,
     marginBottom: 5,
   },
   sectionContainer: {

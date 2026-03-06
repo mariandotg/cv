@@ -20,10 +20,10 @@ export const THEME = {
     lineHeight: 1.4,
   },
   colors: {
-    black: '#000000',
-    darkGray: '#222222',
-    mediumGray: '#555555',
-    lightGray: '#888888',
-    rule: '#000000',
+    black: '#111827',
+    darkGray: '#1f2937',
+    mediumGray: '#374151',
+    lightGray: '#6b7280',
+    rule: '#374151',
   },
 } as const
