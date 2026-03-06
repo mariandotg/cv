@@ -15,7 +15,7 @@ const EN_DATA = {
     'Backend Engineer & Tech Lead specializing in Java and distributed systems, with 3+ years delivering fintech solutions across enterprise clients.',
   summary:
     'Backend engineer turned Tech Lead with 3+ years of remote experience building and scaling fintech systems. I have designed microservices for platforms serving 40,000+ users, led cross-functional teams through major technical migrations, and driven architectural decisions across multiple enterprise client accounts. Currently leading development teams at Stefanini while also conducting technical assessments for engineering hiring. Based in Buenos Aires, Argentina with professional-level English (C2).',
-  avatarUrl: 'me2.webp',
+  avatarUrl: 'me.webp',
   personalWebsiteUrl: 'https://marianoguillaume.com',
   resumeUrl: 'mariano-guillaume-cv-en.pdf',
   contact: {
@@ -169,7 +169,7 @@ const ES_DATA = {
     'Ingeniero Backend y Tech Lead especializado en Java y sistemas distribuidos, con más de 3 años entregando soluciones fintech en clientes enterprise.',
   summary:
     'Ingeniero backend convertido en Tech Lead con más de 3 años de experiencia remota construyendo y escalando sistemas fintech. Diseñé microservicios para plataformas con más de 40.000 usuarios, lideré equipos en migraciones técnicas complejas y tomé decisiones de arquitectura en múltiples cuentas de clientes enterprise. Actualmente lidero equipos de desarrollo en Stefanini y realizo evaluaciones técnicas para procesos de selección de ingeniería. Vivo en Buenos Aires, Argentina y tengo inglés profesional (C2).',
-  avatarUrl: 'me2.webp',
+  avatarUrl: 'me.webp',
   personalWebsiteUrl: 'https://marianoguillaume.com/es',
   resumeUrl: 'mariano-guillaume-cv-es.pdf',
   contact: {
