@@ -1,7 +1,6 @@
 import { GithubIcon } from '../components/icons/GithubIcon'
 import { LinkedInIcon } from '../components/icons/LinkedInIcon'
 import { XIcon } from '../components/icons/XIcon'
-import { InstagramIcon } from '../components/icons/InstagramIcon'
 import type { Welcome } from '../models/resume.data.models'
 
 // Curated version: 2–4 bullets per role, prioritizing metrics and ownership.
@@ -35,11 +34,6 @@ const EN_DATA = {
         name: 'X',
         url: 'https://x.com/mariandotg',
         icon: XIcon,
-      },
-      {
-        name: 'Instagram',
-        url: 'https://www.instagram.com/marian_guilla',
-        icon: InstagramIcon,
       },
     ],
   },
@@ -193,11 +187,6 @@ const ES_DATA = {
         name: 'X',
         url: 'https://x.com/mariandotg',
         icon: XIcon,
-      },
-      {
-        name: 'Instagram',
-        url: 'https://www.instagram.com/marian_guilla',
-        icon: InstagramIcon,
       },
     ],
   },
